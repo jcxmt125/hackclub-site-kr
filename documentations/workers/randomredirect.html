@@ -1,12 +1,12 @@
 <!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <html lang="EN">
+    <meta name="description" content="랜덤 리디렉트 워커에 대한 설명서에요!">
+    <html lang="KR">
 
     
         <head>
-        <title>Documentation for finder worker</title>
+        <title>랜덤 리디렉트 워커에 대한 설명서</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300&display=swap" rel="stylesheet">
@@ -24,66 +24,66 @@
         </head>
         <body style="background-color:#202020;color:#F0F0F0">
 
-            <h1>Documentation for random redirect worker</h1>
+            <h1>랜덤 리디렉트 워커에 대한 설명서</h1>
 
-            <h2>Source code</h2>
+            <h2>소스 코드</h2>
 
             <p>
-              <a style="color: #effab6;" href="https://github.com/jcxmt125/side-projects/blob/main/workers/randomredirect-worker.js">Main worker script</a><br>
+              <a style="color: #effab6;" href="https://github.com/jcxmt125/side-projects/blob/main/workers/randomredirect-worker.js">워커 스크립트</a><br>
             </p>
 
-            <h2>Deploy instructions</h2>
+            <h2>배포 방법</h2>
 
             <p>
-              First, create a <a style="color: #effab6;" href="https://dash.cloudflare.com/">cloudflare account.</a><br>
-              Go to the workers/pages menu on your dashboard.<br>
+              우선, <a style="color: #effab6;" href="https://dash.cloudflare.com/">클라우드플레어 계정</a>을 준비해주세요.<br>
+              대시보드의 workers/pages 메뉴로 향하세요.<br>
               <picture>
                 <source srcset="/resources/documentations/cfworkers/cf-dashboard.avif" type="image/avif">
                 <source srcset="/resources/documentations/cfworkers/cf-dashboard.webp" type="image/webp">
                 <img src="/resources/documentations/cfworkers/cf-dashboard.webp" alt="A photo of the cloudflare dashboard with the workers and pages tab highlighted" width="759" height="417">
               </picture><br>
-              Click the blue "create" button.<br>
+              파란색 만들기 ("create") 버튼을 누르세요.<br>
               <picture>
                 <source srcset="/resources/documentations/cfworkers/cf-workerpages.avif" type="image/avif">
                 <source srcset="/resources/documentations/cfworkers/cf-workerpages.webp" type="image/webp">
                 <img src="/resources/documentations/cfworkers/cf-workerpages.webp" alt="A photo of the create option in the cloudflare dashboard." width="649" height="134">
               </picture><br>
-              Go ahead and click the "Create Worker" button!<br>
+              워커 생성하기 ("Create Worker") 버튼을 눌러주세요!<br>
               <picture>
                 <source srcset="/resources/documentations/cfworkers/cf-worker-create-prepare.avif" type="image/avif">
                 <source srcset="/resources/documentations/cfworkers/cf-worker-create-prepare.webp" type="image/webp">
                 <img src="/resources/documentations/cfworkers/cf-worker-create-prepare.webp" alt="A photo of the create worker menu." width="649" height="236">
               </picture><br>
-              Name your worker, and create it. (You may be asked to set a *.workers.dev domain!)<br>
+              워커의 이름을 짓고, 생성하세요. (*.workers.dev 도메인을 만들어 달라는 요청을 받을 수 있어요!)<br>
               <picture>
                 <source srcset="/resources/documentations/cfworkers/cf-worker-create-ready.avif" type="image/avif">
                 <source srcset="/resources/documentations/cfworkers/cf-worker-create-ready.webp" type="image/webp">
                 <img src="/resources/documentations/cfworkers/cf-worker-create-ready.webp" alt="A photo of the create worker menu." width="667" height="322">
               </picture><br>
-              Click the edit code button immediately, or go and see your worker. From here, click the edit code button.<br>
+              바로 코드 편집 (edit code) 버튼을 누르거나, 워커의 정보를 확인하세요. 여기서, 코드 편집 버튼을 누르세요.<br>
               <picture>
                 <source srcset="/resources/documentations/cfworkers/cf-worker-editcode.avif" type="image/avif">
                 <source srcset="/resources/documentations/cfworkers/cf-worker-editcode.webp" type="image/webp">
                 <img src="/resources/documentations/cfworkers/cf-worker-editcode.webp" alt="A photo of the edit code button." width="187" height="61">
               </picture><br>
-              Paste in the code to the edit space.<br>
+              코드를 편집기에 붙여넣으세요.
             </p>
             <p>
-              This requires more configuration on your side.<br>
-              Populate the urls list with your desired URLs.<br>
-              You may copy and paste the appropriate section of code to add more paths.<br>
-              Deploy your worker, then visit its URL to test it out.<br>
-              For easier usage, go to settings, then triggers, and configure custom URLs or paths.<br>
-              For wrangler (CLI) deploy, see <a style="color: #effab6;" href="https://developers.cloudflare.com/workers">cloudflare's documentation</a>.
+              배포 완료를 위해 조금의 추가 설정이 필요합니다.<br>
+              urls 리스트를 원하는 URL로 채워넣으세요.<br>
+              코드의 알맞은 부분을 복사 / 붙여넣기 해서 더 많은 path 를 만들 수도 있습니다.<br>
+              워커를 배포하고, URL을 방문해 테스트해보세요.<br>
+              더 쉬운 사용을 위해 설정, 트리거 (triggers), 로 향해 커스텀 URL이나 경로 (paths)를 설정하세요.<br>
+              Wrangler (CLI) 배포는, <a style="color: #effab6;" href="https://developers.cloudflare.com/workers">클라우드플레어의 도움말을 참고하세요</a>.
             </p>
 
-            <h2>Usage instructions</h2>
+            <h2>사용 방법</h2>
 
             <p>
-              This worker is meant to be accessed from a browser.<br>
-              Try visiting its URL.<br>
-              You should be 302 redirected.<br>
-              There is no test script for this worker.<br>
+              이 워커는 브라우저를 통한 접속을 상정하고 만들어졌습니다.<br>
+              URL에 방문해보세요.<br>
+              302 리디렉트 될 거에요!<br>
+              이 워커에 대해서는 테스트 스크립트가 없습니다.<br>
             </p>
 
         </body>

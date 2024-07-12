@@ -1,12 +1,12 @@
 <!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <html lang="EN">
+    <meta name="description" content="3d-triangles 워커에 대한 설명서에요!">
+    <html lang="KR">
 
     
         <head>
-        <title>Documentation for the 3d-triangles worker</title>
+        <title>3d-triangles 워커에 대한 설명서</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300&display=swap" rel="stylesheet">
@@ -20,42 +20,42 @@
         </head>
         <body style="background-color:#202020;color:#F0F0F0">
 
-            <h1>Documentation for the 3d-triangles worker</h1>
+            <h1>3d-triangles 워커에 대한 설명서</h1>
 
-            <h2>Source code</h2>
+            <h2>소스 코드</h2>
 
             <p>
-              <a style="color: #effab6;" href="https://github.com/jcxmt125/side-projects/blob/main/workers/3d-triangles-worker/entry.py">Worker script that serves the HTML</a><br>
-              <a style="color: #effab6;" href="https://github.com/jcxmt125/side-projects/blob/main/workers/3d-triangles-worker/requirements.txt">Script that actually generates the HTML</a>
+              <a style="color: #effab6;" href="https://github.com/jcxmt125/side-projects/blob/main/workers/3d-triangles-worker/entry.py">HTML을 보내는 워커 스크립트</a><br>
+              <a style="color: #effab6;" href="https://github.com/jcxmt125/side-projects/blob/main/workers/3d-triangles-worker/requirements.txt">HTML을 생성하는 파이썬 스크립트</a>
 
             </p>
 
-            <h2>Deploy instructions</h2>
+            <h2>배포 방법</h2>
 
             <p>
-              This worker requires a wrangler (CLI) deploy.<br>
-              This worker uses features in beta.<br>
-              Follow along <a style="color: #effab6;" href="https://developers.cloudflare.com/workers/languages/python/">cloudflare's documentation</a> to deploy a worker that uses entry.py to serve content.<br>
-              Replace entry.py with file provided.<br>
-              Place create.py into the same directory.<br>
-              Run npx wrangler@latest deploy as instructed on the cloudflare docs.<br>
-              Visit your worker to test it out.<br>
-              To deploy as if it were a webpage, like it is deployed on <a style="color: #b6defa;" href="/3d.html">this website</a>, use a path with open fallback.<br>
-              Use the Python script to make a similar static HTML and deploy it to the same path to allow for static fallback.
+              이 워커는 Wrangler (CLI) 배포가 강제됩니다.<br>
+              이 워커는 아직 베타 상태인 기능을 사용합니다.<br>
+              <a style="color: #effab6;" href="https://developers.cloudflare.com/workers/languages/python/">클라우드플레어의 설명</a> 에 따라 entry.py를 이용하응 워커를 배포하세요.<br>
+              entry.py의 코드를 위의 소스 코드로 변경하세요.<br>
+              create.py를 같은 디렉토레에 배치하세요.<br>
+              클라우드플레어의 설명에 적혀있듯이, npx wrangler@latest deploy를 실행하세요.<br>
+              워커를 방문해 테스트해 보세요.<br>
+              <a style="color: #b6defa;" href="/3d.html">이 사이트</a>에 연결된 것과 같이 배포하려면, Fallback 모드가 열림으로 설정된 Path를 이용하세요.<br>
+              Python 파일을 이용해 비슷한 HTML 파일을 만들고 스태틱 사이트로 해당 Path로 업로드하세요.
             </p>
 
             <p>
-              This script can be configured more on your side.<br>
-              You may change the various parameters in create.py to make the webpage look different.<br>
+              이 스크립트는 더 설정이 가능합니다.<br>
+              create.py의 여러 설정을 변경해 웹페이지의 모양을 바꿀 수 있습니다.<br>
             </p>
 
-            <h2>Usage instructions</h2>
+            <h2>사용 방법</h2>
 
             <p>
-              This worker acts like a webpage.<br>
-              Visit the URL with your browser to see the page.<br>
-              Refresh to see different possibilities!<br>
-              There is no test script for this worker.<br>
+              이 워커는 웹페이지처럼 작동합니다.<br>
+              URL에 방문해보세요.<br>
+              새로고침하면 새로운 가능성이 표시됩니다!<br>
+              이 워커에 대해서는 테스트 스크립트가 없습니다.<br>
             </p>
 
         </body>

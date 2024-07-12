@@ -1,12 +1,12 @@
 <!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <html lang="EN">
+    <meta name="description" content="Hello World 워커에 대한 설명서에요!">
+    <html lang="KR">
 
     
         <head>
-        <title>Documentation for helloworld worker</title>
+        <title>Hello World 워커에 대한 설명서</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300&display=swap" rel="stylesheet">
@@ -24,61 +24,61 @@
         </head>
         <body style="background-color:#202020;color:#F0F0F0">
 
-            <h1>Documentation for helloworld worker</h1>
+            <h1>Hello World 워커에 대한 설명서</h1>
 
-            <h2>Source code</h2>
+            <h2>소스 코드</h2>
 
             <p>
-              <a style="color: #effab6;" href="https://github.com/jcxmt125/side-projects/blob/main/workers/helloworld-worker.js">Main worker script</a><br>
+              <a style="color: #effab6;" href="https://github.com/jcxmt125/side-projects/blob/main/workers/helloworld-worker.js">워커 스크립트</a><br>
             </p>
 
-            <h2>Deploy instructions</h2>
+            <h2>배포 방법</h2>
 
             <p>
-              First, create a <a style="color: #effab6;" href="https://dash.cloudflare.com/">cloudflare account.</a><br>
-              Go to the workers/pages menu on your dashboard.<br>
+              우선, <a style="color: #effab6;" href="https://dash.cloudflare.com/">클라우드플레어 계정</a>을 준비해주세요.<br>
+              대시보드의 workers/pages 메뉴로 향하세요.<br>
               <picture>
                 <source srcset="/resources/documentations/cfworkers/cf-dashboard.avif" type="image/avif">
                 <source srcset="/resources/documentations/cfworkers/cf-dashboard.webp" type="image/webp">
                 <img src="/resources/documentations/cfworkers/cf-dashboard.webp" alt="A photo of the cloudflare dashboard with the workers and pages tab highlighted" width="759" height="417">
               </picture><br>
-              Click the blue "create" button.<br>
+              파란색 만들기 ("create") 버튼을 누르세요.<br>
               <picture>
                 <source srcset="/resources/documentations/cfworkers/cf-workerpages.avif" type="image/avif">
                 <source srcset="/resources/documentations/cfworkers/cf-workerpages.webp" type="image/webp">
                 <img src="/resources/documentations/cfworkers/cf-workerpages.webp" alt="A photo of the create option in the cloudflare dashboard." width="649" height="134">
               </picture><br>
-              Go ahead and click the "Create Worker" button!<br>
+              워커 생성하기 ("Create Worker") 버튼을 눌러주세요!<br>
               <picture>
                 <source srcset="/resources/documentations/cfworkers/cf-worker-create-prepare.avif" type="image/avif">
                 <source srcset="/resources/documentations/cfworkers/cf-worker-create-prepare.webp" type="image/webp">
                 <img src="/resources/documentations/cfworkers/cf-worker-create-prepare.webp" alt="A photo of the create worker menu." width="649" height="236">
               </picture><br>
-              Name your worker, and create it. (You may be asked to set a *.workers.dev domain!)<br>
+              워커의 이름을 짓고, 생성하세요. (*.workers.dev 도메인을 만들어 달라는 요청을 받을 수 있어요!)<br>
               <picture>
                 <source srcset="/resources/documentations/cfworkers/cf-worker-create-ready.avif" type="image/avif">
                 <source srcset="/resources/documentations/cfworkers/cf-worker-create-ready.webp" type="image/webp">
                 <img src="/resources/documentations/cfworkers/cf-worker-create-ready.webp" alt="A photo of the create worker menu." width="667" height="322">
               </picture><br>
-              Click the edit code button immediately, or go and see your worker. From here, click the edit code button.<br>
+              바로 코드 편집 (edit code) 버튼을 누르거나, 워커의 정보를 확인하세요. 여기서, 코드 편집 버튼을 누르세요.<br>
               <picture>
                 <source srcset="/resources/documentations/cfworkers/cf-worker-editcode.avif" type="image/avif">
                 <source srcset="/resources/documentations/cfworkers/cf-worker-editcode.webp" type="image/webp">
                 <img src="/resources/documentations/cfworkers/cf-worker-editcode.webp" alt="A photo of the edit code button." width="187" height="61">
               </picture><br>
-              Paste in the code to the edit space, and click deploy. It should be ready to use!<br>
-              Visit your worker to test it out.<br>
-              For easier usage, go to settings, then triggers, and configure custom URLs or paths.<br>
-              For wrangler (CLI) deploy, see <a style="color: #effab6;" href="https://developers.cloudflare.com/workers">cloudflare's documentation</a>.
+              코드를 편집기에 붙여넣고, 배포 (deploy) 버튼을 누르세요. 사용할 준비가 되었을 거에요!<br>
+              워커 사이트를 방문하여 테스트해보세요.<br>
+              더 쉬운 사용을 위해 설정, 트리거 (triggers), 로 향해 커스텀 URL이나 경로 (paths)를 설정하세요.<br>
+              Wrangler (CLI) 배포는, <a style="color: #effab6;" href="https://developers.cloudflare.com/workers">클라우드플레어의 도움말을 참고하세요</a>.
             </p>
 
-            <h2>Usage instructions</h2>
+            <h2>사용 방법</h2>
 
             <p>
-              This worker is an API.<br>
-              Try sending a GET request to the endpoint.<br>
-              You should recieve a plaintext response with the text "Hello, World!"<br>
-              There is an accompanying <a style="color: #b6defa;" href="/documentations/workers/testscripts/helloworld-worker-test.html">test script</a>.<br> 
+              이 워커는 API 입니다.<br>
+              GET 요청을 워커의 엔드포인트로 보내세요.<br>
+              "Hello, World!"라는 텍스트 응답을 받을 거에요.<br>
+              사용할 수 있는 파이썬 <a style="color: #b6defa;" href="/documentations/workers/testscripts/helloworld-worker-test.html">테스트 스크립트</a>도 있습니다.<br> 
             </p>
 
         </body>
