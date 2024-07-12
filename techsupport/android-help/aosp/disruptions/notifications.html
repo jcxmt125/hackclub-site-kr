@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Helping you with common problems on Android - AOSP conformant devices / disruptions / notifications">
+    <html lang="EN">
+
+    
+        <head>
+        <title>Android help AOSP</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300&display=swap" rel="stylesheet">
+        <style>
+          body {
+            font-family: 'IBM Plex Sans KR', sans-serif;;
+            padding: 10px;
+            line-height: 200%;
+          }
+          video {  
+            max-width: 100%;
+            height: auto;
+          }
+        </style>
+        </head>
+        <body style="background-color:#202020;color:#F0F0F0">
+
+            <h1>Android help - AOSP / disruptions / notifications</h1>
+
+            <p>
+                There are multiple ways of dealing with this issue.<br>
+                <ul>
+                    <li>Silencing the notification category</li>
+                    <li>Disabling the notification category</li>
+                    <li>Disabling the app's notification entirely</li>
+                </ul>
+                Each method is outlined below, with a video demonstration.
+            </p>
+
+            <h2>Notification category silencing</h2>
+
+            <p>
+                From the notification shade, long-press the offending notification.<br>
+                Select "silent" to recieve similar notifications "silently".<br>
+                They won't ring your device, but it'll be there in your notification shade.<br> 
+            </p>
+
+            <video width="320" controls>
+                <source src="https://hackclub-res.jclink.link/video/aosp_noti_silence.webm" type="video/webm">
+                A screen recording of silencing an app's notification category.
+            </video>
+
+            <h2>Notification category disabling</h2>
+
+            <p>
+                From the notification shade, long-press the offending notification.<br>
+                Select "turn off notifications".<br>
+                A pop up will open, and the category of the notification will blink to indicate which one the notification belongs to.<br>
+                Toggle the category off, then click apply.<br>
+                This will cause all similar notifications to not arrive at all.<br>
+            </p>
+
+            <video width="320" controls>
+                <source src="https://hackclub-res.jclink.link/video/aosp_noti_disablecat.webm" type="video/webm">
+                A screen recording of disabling an app's notification category.
+            </video>
+
+            <h2>Disabling notifications for an entire app</h2>
+
+            <p>
+                This will prevent you from recieving any notifications from that app, no matter how important.<br>
+                From the notification shade, long-press the offending notification.<br>
+                Tap the cogwheel icon.<br>
+                Toggle off "All [app name] notifications".<br>
+                You can also turn off individual categories from here instead.<br>
+                The category of the notification will blink to indicate which one the notification belongs to.<br>
+            </p>
+
+            <video width="320" controls>
+                <source src="https://hackclub-res.jclink.link/video/aosp_noti_disableall.webm" type="video/webm">
+                A screen recording of disabling an app's notification entirely.
+            </video>
+
+        </body>
+    </html>

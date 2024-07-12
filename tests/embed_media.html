@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Testing media embedding">
+    <html lang="EN">
+
+    
+        <head>
+        <title>Media Embed Test</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300&display=swap" rel="stylesheet">
+        <style>
+          body {
+            font-family: 'IBM Plex Sans KR', sans-serif;;
+            padding: 10px;
+            line-height: 200%;
+          }
+          img {  
+            max-width: 100%;
+            height: auto;
+          }
+        </style>
+        </head>
+        <body style="background-color:#202020;color:#F0F0F0">
+
+            <h1>Media embed testing</h1>
+
+            <p>
+              Testing media embeds for images in-webpage
+            </p>
+
+            <img src="/resources/shield_block.webp" alt="A red shield with an exclamation point within it" width="48" height="48">
+
+            <p>
+              Testing dynamic images based on what the browser supports<br>
+              AVIF should be used in most places<br>
+              On MS Edge, WebP will likely be used<br>
+            </p>
+
+            <picture>
+              <source srcset="/resources/Terminal.avif" type="image/avif">
+              <source srcset="/resources/Terminal.webp" type="image/webp">
+              <img src="/resources/Terminal.webp" alt="A black background with a Greater than sign and an underbar" width="512" height="512">
+            </picture>
+
+        </body>
+    </html>

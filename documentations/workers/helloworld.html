@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <html lang="EN">
+
+    
+        <head>
+        <title>Documentation for helloworld worker</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300&display=swap" rel="stylesheet">
+        <style>
+          body {
+            font-family: 'IBM Plex Sans KR', sans-serif;;
+            padding: 10px;
+            line-height: 200%;
+          }
+          img {  
+            max-width: 100%;
+            height: auto;
+          }
+        </style>
+        </head>
+        <body style="background-color:#202020;color:#F0F0F0">
+
+            <h1>Documentation for helloworld worker</h1>
+
+            <h2>Source code</h2>
+
+            <p>
+              <a style="color: #effab6;" href="https://github.com/jcxmt125/side-projects/blob/main/workers/helloworld-worker.js">Main worker script</a><br>
+            </p>
+
+            <h2>Deploy instructions</h2>
+
+            <p>
+              First, create a <a style="color: #effab6;" href="https://dash.cloudflare.com/">cloudflare account.</a><br>
+              Go to the workers/pages menu on your dashboard.<br>
+              <picture>
+                <source srcset="/resources/documentations/cfworkers/cf-dashboard.avif" type="image/avif">
+                <source srcset="/resources/documentations/cfworkers/cf-dashboard.webp" type="image/webp">
+                <img src="/resources/documentations/cfworkers/cf-dashboard.webp" alt="A photo of the cloudflare dashboard with the workers and pages tab highlighted" width="759" height="417">
+              </picture><br>
+              Click the blue "create" button.<br>
+              <picture>
+                <source srcset="/resources/documentations/cfworkers/cf-workerpages.avif" type="image/avif">
+                <source srcset="/resources/documentations/cfworkers/cf-workerpages.webp" type="image/webp">
+                <img src="/resources/documentations/cfworkers/cf-workerpages.webp" alt="A photo of the create option in the cloudflare dashboard." width="649" height="134">
+              </picture><br>
+              Go ahead and click the "Create Worker" button!<br>
+              <picture>
+                <source srcset="/resources/documentations/cfworkers/cf-worker-create-prepare.avif" type="image/avif">
+                <source srcset="/resources/documentations/cfworkers/cf-worker-create-prepare.webp" type="image/webp">
+                <img src="/resources/documentations/cfworkers/cf-worker-create-prepare.webp" alt="A photo of the create worker menu." width="649" height="236">
+              </picture><br>
+              Name your worker, and create it. (You may be asked to set a *.workers.dev domain!)<br>
+              <picture>
+                <source srcset="/resources/documentations/cfworkers/cf-worker-create-ready.avif" type="image/avif">
+                <source srcset="/resources/documentations/cfworkers/cf-worker-create-ready.webp" type="image/webp">
+                <img src="/resources/documentations/cfworkers/cf-worker-create-ready.webp" alt="A photo of the create worker menu." width="667" height="322">
+              </picture><br>
+              Click the edit code button immediately, or go and see your worker. From here, click the edit code button.<br>
+              <picture>
+                <source srcset="/resources/documentations/cfworkers/cf-worker-editcode.avif" type="image/avif">
+                <source srcset="/resources/documentations/cfworkers/cf-worker-editcode.webp" type="image/webp">
+                <img src="/resources/documentations/cfworkers/cf-worker-editcode.webp" alt="A photo of the edit code button." width="187" height="61">
+              </picture><br>
+              Paste in the code to the edit space, and click deploy. It should be ready to use!<br>
+              Visit your worker to test it out.<br>
+              For easier usage, go to settings, then triggers, and configure custom URLs or paths.<br>
+              For wrangler (CLI) deploy, see <a style="color: #effab6;" href="https://developers.cloudflare.com/workers">cloudflare's documentation</a>.
+            </p>
+
+            <h2>Usage instructions</h2>
+
+            <p>
+              This worker is an API.<br>
+              Try sending a GET request to the endpoint.<br>
+              You should recieve a plaintext response with the text "Hello, World!"<br>
+              There is an accompanying <a style="color: #b6defa;" href="/documentations/workers/testscripts/helloworld-worker-test.html">test script</a>.<br> 
+            </p>
+
+        </body>
+    </html>

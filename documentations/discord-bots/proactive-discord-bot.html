@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <html lang="EN">
+
+    
+        <head>
+        <title>Documentation for proactive Discord bot</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300&display=swap" rel="stylesheet">
+        <style>
+          body {
+            font-family: 'IBM Plex Sans KR', sans-serif;;
+            padding: 10px;
+            line-height: 200%;
+          }
+        </style>
+        </head>
+        <body style="background-color:#202020;color:#F0F0F0">
+
+            <h1>Documentation for proactive Discord bot</h1>
+
+            <h2>Source code</h2>
+
+            <p>
+              <a style="color: #effab6;" href="https://github.com/jcxmt125/proactive-discord-bot">Github repository</a><br>
+            </p>
+
+            <h2>Environment configuration</h2>
+
+            <p>
+                First, git clone the repo.<br>
+                This bot requires additional modules: install them with "pip install -r requirements.txt".<br>
+                It is recommended to do this in a venv.<br>
+            </p>
+
+            <p>
+                This script requires a .env file:<br>
+                Cloudflare related:
+                <ul>
+                    <li>CLOUDFLARE_AI_API_KEY: an API key with access to cloudflare's AI.</li>
+                    <li>CLOUDFLARE_AI_GATEWAY_SLUG: the slug you set for Cloudflare's AI gateway.</li>
+                    <li>CLOUDFLARE_USER_ID: Your cloudflare user ID: the string of letters and numbers after "dash.cloudflare.com" when logged in.</li>
+                    <li>CLOUDFLARE_RADAR_API_KEY: an API key with access to cloudflare radar.</li>
+                </ul>
+                Storage related:
+                <ul>
+                    <li>S3COMPAT_ENDPOINT_URL: The endpoint for the S3 API</li>
+                    <li>S3KEYID: Your S3 key ID</li>
+                    <li>S3SECRET: Your S3 secret</li>
+                    <li>S3_BUCKET_PUBLIC_URL: The public URL of your S3 bucket (will be displayed to users)</li>
+                    <li>S3_BUCKET_NAME: The name of your S3 bucket</li>
+                </ul>
+                Other:
+                <ul>
+                    <li>GEMINI_API_KEY: get one from Google's AI studio. Most LLM requests will use this.</li>
+                    <li>DISCORD_BOT_TOKEN: get one from Discord developer portal.</li>
+                </ul>
+            </p>
+
+            <p>
+                You need to install more programs not covered by Python dependancies:<br>
+                <ul>
+                    <li>ImageMagick: Install it, and test that you can access it either via "magick" or "convert".</li>
+                    <li>ffmpeg: Install it, and test you can access it on the cli.</li>
+                </ul>
+                Both need to be on your PATH.
+            </p>
+
+            <h2>Usage instructions</h2>
+
+            <p>
+                Invite your bot to a server from the provided installation URL on the Discord developer portal.<br>
+                Run "bot_botmode_autoread.py". You must keep this running for the bot to work.<br>
+                On linux CLI, usage of tools such as "screen" is recommended.<br>
+                On first run, a directory will be created to store configurations.<br>
+                Check that the bot appears "online".
+            </p>
+
+            <p>
+                Run the "$initialize" command on a channel.<br>
+                This will be considered your "main" channel.<br>
+                You may at any time run this command elsewhere to change it.<br>
+            </p>
+
+            <p>
+                The bot can only send files up to 25mbs, without relation to your Discord Nitro status.<br>
+                Exceptions are servers with higher "boost" statuses.<br>
+                Files that fail to send may cause the bot to silently fail.<br>
+                In case you are running this bot on a VPS provider, please mind the egress fee.<br>
+                The bot is designed to minimize egress whenever possible, by converting images to webp.<br>
+                For extremely long text resopnses, the bot will try to fall back to .txt files.<br>
+                When using some commands, the bot might take a bit to respond based on your server's speed (both network and CPU).<br>
+            </p>
+
+            <p>
+                To update the bot, run git pull in the directory of the bot.py file.<br>
+                Updating may change dependancies. Run pip install -r requirements.txt again.<br>
+            </p>
+
+            <h3>Configuration</h3>
+
+            <p>
+                $enable or $disable features to your liking.<br>
+                You may use all/AI/proactive in place of individual names.
+            </p>
+
+            <p>
+                For hardcoded features (proactive):<br>
+                <ul>
+                    <li>HelpEverywhere: This will allow the bot to respond with hardcoded responses anywhere. (If off: only in the main channel)</li>
+                    <li>ImageConversion: The bot will auto-convert heic and avif files to webp.</li>
+                    <li>AudioConversion: The bot will auto-convert opus files to mp3.</li>
+                    <li>TextPublish: The bot will automatically publish a txt file as a webpage.</li>
+                    <li>APNGConversion: The bot will auto convert apng files to webm.</li>
+                </ul>
+                <br>
+                For AI-enabled features (AI):<br>
+                <ul>
+                    <li>AIEnabled: Enables AI scanning in the main channel. (If off: all of the below features won't work)</li>
+                    <li>AIWebScan: scans URLs for safety.</li>
+                    <li>AIMediaLoad: downloads audio tracks from youtube.</li>
+                    <li>AIResponse: AI responds to factual questions.</li>
+                    <li>AIImagen: Generates images with Stable Diffusion.</li>
+                    <li>AIAudioTrancscribe: Transcribes audio when prompted</li>
+                </ul>
+                The "search radius" for all AI-enabled features is 5 messages.
+            </p>
+
+            <h2>Privacy / Security</h2>
+
+            <p>
+                When AI features are enabled, the bot looks for any new message on the main channel, and sends it to Google's Gemini API for analysis.<br>
+                On free tier, Google may use this collected data to improve its models.<br>
+                Do not set the main channel to #general or similar.<br>
+            </p>
+
+            <p>
+                Nothing is logged to a file by default.<br>
+                Some things are printed to the terminal.<br>
+                <br>
+                The bot shouldn't be able to execute any code.<br>
+                However, some features will cause files to be downloaded to the server briefly while it processes.<br>
+                They will be deleted as soon as feasible.<br>
+            </p>
+
+            <h2>Fallbacks</h2>
+
+            <p>
+                The bot will fall back to Cloudflare AI's Llama 3 model in case Gemini API fails.<br>
+                This may be due to a rate limit, or because something else happened.<br>
+                You may notice degraded performance when this happens.<br>
+            </p>
+
+        </body>
+    </html>

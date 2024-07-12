@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <html lang="EN">
+
+    
+        <head>
+        <title>Documentation for the 3d-triangles worker</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300&display=swap" rel="stylesheet">
+        <style>
+          body {
+            font-family: 'IBM Plex Sans KR', sans-serif;;
+            padding: 10px;
+            line-height: 200%;
+          }
+        </style>
+        </head>
+        <body style="background-color:#202020;color:#F0F0F0">
+
+            <h1>Documentation for the 3d-triangles worker</h1>
+
+            <h2>Source code</h2>
+
+            <p>
+              <a style="color: #effab6;" href="https://github.com/jcxmt125/side-projects/blob/main/workers/3d-triangles-worker/entry.py">Worker script that serves the HTML</a><br>
+              <a style="color: #effab6;" href="https://github.com/jcxmt125/side-projects/blob/main/workers/3d-triangles-worker/requirements.txt">Script that actually generates the HTML</a>
+
+            </p>
+
+            <h2>Deploy instructions</h2>
+
+            <p>
+              This worker requires a wrangler (CLI) deploy.<br>
+              This worker uses features in beta.<br>
+              Follow along <a style="color: #effab6;" href="https://developers.cloudflare.com/workers/languages/python/">cloudflare's documentation</a> to deploy a worker that uses entry.py to serve content.<br>
+              Replace entry.py with file provided.<br>
+              Place create.py into the same directory.<br>
+              Run npx wrangler@latest deploy as instructed on the cloudflare docs.<br>
+              Visit your worker to test it out.<br>
+              To deploy as if it were a webpage, like it is deployed on <a style="color: #b6defa;" href="/3d.html">this website</a>, use a path with open fallback.<br>
+              Use the Python script to make a similar static HTML and deploy it to the same path to allow for static fallback.
+            </p>
+
+            <p>
+              This script can be configured more on your side.<br>
+              You may change the various parameters in create.py to make the webpage look different.<br>
+            </p>
+
+            <h2>Usage instructions</h2>
+
+            <p>
+              This worker acts like a webpage.<br>
+              Visit the URL with your browser to see the page.<br>
+              Refresh to see different possibilities!<br>
+              There is no test script for this worker.<br>
+            </p>
+
+        </body>
+    </html>

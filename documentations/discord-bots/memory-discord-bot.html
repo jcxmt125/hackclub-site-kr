@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <html lang="EN">
+
+    
+        <head>
+        <title>Documentation for memory Discord bot</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300&display=swap" rel="stylesheet">
+        <style>
+          body {
+            font-family: 'IBM Plex Sans KR', sans-serif;;
+            padding: 10px;
+            line-height: 200%;
+          }
+        </style>
+        </head>
+        <body style="background-color:#202020;color:#F0F0F0">
+
+            <h1>Documentation for memory Discord bot</h1>
+
+            <h2>Source code</h2>
+
+            <p>
+              <a style="color: #effab6;" href="https://github.com/jcxmt125/memory-discord-bot">Github repository</a><br>
+            </p>
+
+            <h2>Environment configuration</h2>
+
+            <p>
+                First, git clone the repo.<br>
+                This bot requires additional modules: install them with "pip install -r requirements.txt".<br>
+                It is recommended to do this in a venv.<br>
+                If installing on a resource-constrained server, first run "pip install torch --no-cache-dir".<br>
+                You may have to resolve some errors. "sudo apt install libzbar0"<br>
+                See <a style="color: #effab6;" href="https://pypi.org/project/qreader/">here</a> for more information about QReader.<br>
+            </p>
+
+            <p>
+                This script requires a .env file:<br>
+                Cloudflare related:
+                <ul>
+                    <li>CLOUDFLARE_AI_API_KEY: an API key with access to cloudflare's AI.</li>
+                    <li>CLOUDFLARE_AI_GATEWAY_SLUG: the slug you set for Cloudflare's AI gateway.</li>
+                    <li>CLOUDFLARE_USER_ID: Your cloudflare user ID: the string of letters and numbers after "dash.cloudflare.com" when logged in.</li>
+                    <li>CLOUDFLARE_RADAR_API_KEY: an API key with access to cloudflare radar.</li>
+                </ul>
+                Storage related:
+                <ul>
+                    <li>S3COMPAT_ENDPOINT_URL: The endpoint for the S3 API</li>
+                    <li>S3KEYID: Your S3 key ID</li>
+                    <li>S3SECRET: Your S3 secret</li>
+                    <li>S3_BUCKET_PUBLIC_URL: The public URL of your S3 bucket (will be displayed to users)</li>
+                    <li>S3_BUCKET_NAME: The name of your S3 bucket</li>
+                </ul>
+                Other:
+                <ul>
+                    <li>GEMINI_API_KEY: get one from Google's AI studio. Most LLM requests will use this.</li>
+                    <li>DISCORD_BOT_TOKEN: get one from Discord developer portal.</li>
+                </ul>
+            </p>
+
+            <p>
+                You need to install more programs not covered by Python dependancies:<br>
+                <ul>
+                    <li>ImageMagick: Install it, and test that you can access it either via "magick" or "convert".</li>
+                    <li>ffmpeg: Install it, and test you can access it on the cli.</li>
+                </ul>
+                Both need to be on your PATH.
+            </p>
+
+            <h2>Usage instructions</h2>
+
+            <p>
+                Invite your bot to a server from the provided installation URL on the Discord developer portal.<br>
+                Create two directories: "ltmemories" and "stmemories".<br>
+                Run "bot.py". You must keep this running for the bot to work.<br>
+                On linux CLI, usage of tools such as "screen" is recommended.<br>
+                <b>This bot may take a while to start up on slow servers.</b><br>
+                Check that the bot appears "online".<br>
+            </p>
+
+            <p>
+                The default prefix is "?".<br>
+                Add the following command after the prefix to execute:<br>
+            </p>
+
+            <ul>
+                <li>llmreq [message]: Straight request to the LLM backend. No configuration / additional features. Only supports text.</li>
+                <li>dumpMemory: Sends your memory files to the channel.</li>
+                <li>current: Checks whether you are in a conversation, and whether it is "stale".</li>
+                <li>finish: Finishes the current conversation, wiping the short term memory and appending to long term memory.</li>
+                <li>stmemPurge: Purges short term memory <b>without appending to long term memory</b>.</li>
+                <li>deregisterAllMemory: <b>Permanently deletes all memory.</b> Use with caution.</li>
+                <li>talk [message]: Do conversation with the bot, using its LLM backend. Short term memory will be automatically cleared if the conversation is "stale".</li>
+                <li>transcribe [attachment(s) (optional)]: Transcribes audio files with OpenAI whisper running on Cloudflare AI.</li>
+                <li>ytdlAudio [URL]: Downloads an audio file from YouTube. (uses ffmpeg)</li>
+                <li>convert [attachment(s)] [target format]: uses ffmpeg or imagemagick depending on the file's MIME type, to convert to the target format.</li>
+                <li>ffmpeg [attachment(s)] [target format]: same as above, force use of ffmpeg.</li>
+                <li>magick [attachment(s)] [target format]: same as above, force use of imagemagick.</li>
+                <li>urlscan [URL]: Scans URL with cloudflare radar.</li>
+                <li>qrscan [attachment(s) (optional)]: scans for QR codes in attached image.</li>
+                <li>publish [attachment(s) (optional)]: publishes a txt file as an HTML file to the S3 bucket.</li>
+                <li>qrcode [text]: generates a QR code. (uses imagemagick)</li>
+            </ul>
+
+            <p>
+                The bot can only send files up to 25mbs, without relation to your Discord Nitro status.<br>
+                Files that fail to send may cause the bot to silently fail.<br>
+                In case you are running this bot on a VPS provider, please mind the egress fee.<br>
+                The bot is designed to minimize egress whenever possible, by converting images to webp.<br>
+                However, this protection does not extend to usage of the convert command.<br>
+                For extremely long text resopnses, the bot will try to fall back to .txt files.<br>
+                When using some commands, the bot might take a bit to respond based on your server's speed (both network and CPU).<br>
+                Use caution when using resource-intensove commands on resource-constrained servers. <b>It may cause the entire bot to crash.</b>
+            </p>
+
+            <p>
+                To update the bot, run git pull in the directory of the bot.py file.<br>
+                Updating may change dependancies. Run pip install -r requirements.txt again.<br>
+            </p>
+
+            <h2>Privacy / Security</h2>
+
+            <p>
+                When AI features are used, the bot sends the text to Google's Gemini API for analysis.<br>
+                On free tier, Google may use this collected data to improve its models.<br>
+            </p>
+
+            <p>
+                When "attachment optional" features are used, the bot will scan some previous messages (5 by default) to find the required file.<br>
+                If possible, attach the file to the command message directly.<br>
+                <br>
+                Nothing is logged to a file by default.<br>
+                Some things are printed to the terminal.<br>
+                <br>
+                The bot shouldn't be able to execute any code.<br>
+                However, some features will cause files to be downloaded to the server briefly while it processes.<br>
+                They will be deleted as soon as feasible.<br>
+            </p>
+
+            <h2>Fallbacks</h2>
+
+            <p>
+                The bot will fall back to Cloudflare AI's Llama 3 model in case Gemini API fails.<br>
+                This may be due to a rate limit, or because something else happened.<br>
+                You may notice degraded performance when this happends.<br>
+            </p>
+
+        </body>
+    </html>

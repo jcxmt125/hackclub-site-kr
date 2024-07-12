@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <html lang="EN">
+
+    
+        <head>
+        <title>Documentation for htmlify.py</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300&display=swap" rel="stylesheet">
+        <style>
+          body {
+            font-family: 'IBM Plex Sans KR', sans-serif;;
+            padding: 10px;
+            line-height: 200%;
+          }
+        </style>
+        </head>
+        <body style="background-color:#202020;color:#F0F0F0">
+
+            <h1>Documentation for htmlify.py</h1>
+
+            <h2>Source code</h2>
+
+            <p>
+              <a style="color: #effab6;" href="https://github.com/jcxmt125/side-projects/blob/main/python%20scripts/uploadfile.py">Main python script</a><br>
+            </p>
+
+            <h2>Environment configuration</h2>
+
+            <p>
+              This script requires the following modules:
+              <ul>
+                <li><i>b2sdk</i>:If using Backblaze specific scripts</li>
+                <li>boto3: If using any other S3 compatible providers</li>
+                <li>python-dotenv</li>
+                <li>requests</li>
+              </ul>
+            </p>
+
+            <p>
+              This script requires a .env file.
+              For Backblaze:
+              <ul>
+                <li>B2_APPLICATION_KEY_ID</li>
+                <li>B2_APPLICATION_KEY</li>
+                <li>B2_BUCKET_NAME</li>
+                <li>B2_FILE_URL_PREFIX</li>
+              </ul>
+              For generic S3 provider:
+              <ul>
+                <li>S3_COMPAT_ENDPOINT_URL</li>
+                <li>S3_COMPAT_ACCESS_KEY_ID</li>
+                <li>S3_COMPAT_SECRET_ACCESS_KEY</li>
+                <li>S3_COMPAT_BUCKET_NAME</li>
+                <li>S3_COMPAT_FILE_URL_PREFIX</li>
+              </ul>
+              For Short.io link shortening:
+              <ul>
+                <li>SHORT_IO_API_KEY</li>
+                <li>SHORT_IO_DOMAIN</li>
+              </ul>
+            </p>
+
+            <p>
+              This script is designed for Windows environments.<br>
+              Path-splitting may need to change for other environments.<br>
+            </p>
+
+            <h2>Further configuration</h2>
+
+            <p>
+              You need to sign up for Backblaze, or another S3 compatible storage provider.<br>
+              You need to sign up for short.io and connect a domain.<br>
+              You need to set up lifecycle rules in your S3 compatible storage provider.<br>
+            </p>
+
+            <h2>Usage instructions</h2>
+
+            <p>
+              Open the script and follow the instructions.<br>
+            </p>
+
+        </body>
+    </html>
