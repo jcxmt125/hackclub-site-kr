@@ -1,12 +1,12 @@
 <!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <html lang="EN">
+    <meta name="description" content="uploadfile.py의 설명서">
+    <html lang="KR">
 
     
         <head>
-        <title>Documentation for htmlify.py</title>
+        <title>uploadfile.py 설명서</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300&display=swap" rel="stylesheet">
@@ -20,36 +20,36 @@
         </head>
         <body style="background-color:#202020;color:#F0F0F0">
 
-            <h1>Documentation for htmlify.py</h1>
+            <h1>uploadfile.py의 설명서</h1>
 
-            <h2>Source code</h2>
+            <h2>소스 코드</h2>
 
             <p>
-              <a style="color: #effab6;" href="https://github.com/jcxmt125/side-projects/blob/main/python%20scripts/uploadfile.py">Main python script</a><br>
+              <a style="color: #effab6;" href="https://github.com/jcxmt125/side-projects/blob/main/python%20scripts/uploadfile.py">파이썬 스크립트</a><br>
             </p>
 
-            <h2>Environment configuration</h2>
+            <h2>환경 셋업</h2>
 
             <p>
-              This script requires the following modules:
+              이 프로젝트는 다음 파이썬 모듈을 필요로 합니다:
               <ul>
-                <li><i>b2sdk</i>:If using Backblaze specific scripts</li>
-                <li>boto3: If using any other S3 compatible providers</li>
+                <li><i>b2sdk</i>:Backblaze의 서비스를 사용한다면</li>
+                <li>boto3: 다른 S3 호환 프로바이더를 사용한다면</li>
                 <li>python-dotenv</li>
                 <li>requests</li>
               </ul>
             </p>
 
             <p>
-              This script requires a .env file.
-              For Backblaze:
+              이 스크립트는 .env 파일을 필요로 합니다.
+              Backblaze:
               <ul>
                 <li>B2_APPLICATION_KEY_ID</li>
                 <li>B2_APPLICATION_KEY</li>
                 <li>B2_BUCKET_NAME</li>
                 <li>B2_FILE_URL_PREFIX</li>
               </ul>
-              For generic S3 provider:
+              S3 호환 프로바이더:
               <ul>
                 <li>S3_COMPAT_ENDPOINT_URL</li>
                 <li>S3_COMPAT_ACCESS_KEY_ID</li>
@@ -57,7 +57,7 @@
                 <li>S3_COMPAT_BUCKET_NAME</li>
                 <li>S3_COMPAT_FILE_URL_PREFIX</li>
               </ul>
-              For Short.io link shortening:
+              Short.io 링크 줄이기:
               <ul>
                 <li>SHORT_IO_API_KEY</li>
                 <li>SHORT_IO_DOMAIN</li>
@@ -65,22 +65,22 @@
             </p>
 
             <p>
-              This script is designed for Windows environments.<br>
-              Path-splitting may need to change for other environments.<br>
+              윈도우 환경을 상정하고 개발되었습니다.<br>
+              다른 플랫폼의 경우 파일 경로 처리가 바뀌어야 할수도 있습니다.<br>
             </p>
 
-            <h2>Further configuration</h2>
+            <h2>추가 셋업</h2>
 
             <p>
-              You need to sign up for Backblaze, or another S3 compatible storage provider.<br>
-              You need to sign up for short.io and connect a domain.<br>
-              You need to set up lifecycle rules in your S3 compatible storage provider.<br>
+              Backblaze 또는 다른 S3 호환 프로바이더에 가입해야 합니다.<br>
+              Short.io에 회원가입하고 도메인을 연결해야 합니다.<br>
+              S3 호환 프로바이더에서 Lifecycle (자동 삭제) 규칙을 설정해야 합니다.<br>
             </p>
 
-            <h2>Usage instructions</h2>
+            <h2>사용 방법</h2>
 
             <p>
-              Open the script and follow the instructions.<br>
+              스크립트를 실행하고 설명을 따릅니다.<br>
             </p>
 
         </body>

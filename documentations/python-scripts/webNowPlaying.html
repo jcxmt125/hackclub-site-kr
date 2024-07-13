@@ -1,12 +1,12 @@
 <!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <html lang="EN">
+    <meta name="description" content="webNowPlayingLogger.py & wnpLogRead.py의 설명서">
+    <html lang="KR">
 
     
         <head>
-        <title>Documentation for wnp</title>
+        <title>wnp 스크립트 설명서</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300&display=swap" rel="stylesheet">
@@ -24,62 +24,62 @@
         </head>
         <body style="background-color:#202020;color:#F0F0F0">
 
-            <h1>Documentation for create-3d-triangles.py</h1>
+            <h1>webNowPlayingLogger.py & wnpLogRead.py의 설명서</h1>
 
-            <h2>Source code</h2>
+            <h2>소스 코드</h2>
 
             <p>
-              <a style="color: #effab6;" href="https://github.com/jcxmt125/side-projects/blob/main/python%20scripts/webNowPlayingLogger.py">Logger script</a><br>
-              <a style="color: #effab6;" href="https://github.com/jcxmt125/side-projects/blob/main/python%20scripts/wnpLogRead.py">Reader script</a><br>
+              <a style="color: #effab6;" href="https://github.com/jcxmt125/side-projects/blob/main/python%20scripts/webNowPlayingLogger.py">로깅 스크립트</a><br>
+              <a style="color: #effab6;" href="https://github.com/jcxmt125/side-projects/blob/main/python%20scripts/wnpLogRead.py">분석 스크립트</a><br>
             </p>
 
-            <h2>Environment configuration</h2>
+            <h2>환경 셋업</h2>
 
             <p>
-              This project requires additional modules.<br>
+              이 프로젝트는 다음 파이썬 모듈을 필요로 합니다:<br>
               <ul>
                 <li>pywnp</li>
               </ul>
             </p>
 
             <p>
-              This script does not require a .env file.<br>
+              이 프로젝트는 .env 파일을 필요로 하지 않습니다.<br>
             </p>
 
             <p>
-              This script requires further setup:<br>
-              It requires a browser extension: <a style="color: #effab6;" href="https://chromewebstore.google.com/detail/webnowplaying/jfakgfcdgpghbbefmdfjkbdlibjgnbli">WebNowPlaying (chrome)</a><br>
-              Install and set it up for your favourite websites.<br>
-              Then, add a custom adapter:<br>
+              이 프로젝트는 추가 셋업이 필요합니다:<br>
+              브라우저 확장 프로그램이 필요합니다: <a style="color: #effab6;" href="https://chromewebstore.google.com/detail/webnowplaying/jfakgfcdgpghbbefmdfjkbdlibjgnbli">WebNowPlaying (크롬 웹스토어)</a><br>
+              설치 후, 사용하고자 하는 웹사이트에 대해 셋업합니다.<br>
+              그 다음, 커스텀 어답터를 추가합니다:<br>
               <picture>
                 <source srcset="/resources/documentations/pyscripts/wnp-customadd.avif" type="image/avif">
                 <source srcset="/resources/documentations/pyscripts/wnp-customadd.webp" type="image/webp">
-                <img src="/resources/documentations/pyscripts/wnp-customadd.webp" alt="A photo of the Add custom adapter button in WebNowPlaying" width="323" height="60">
+                <img src="/resources/documentations/pyscripts/wnp-customadd.webp" alt="확장 프로그램의 커스텀 어답터 추가 버튼을 보여주는 사진" width="323" height="60">
               </picture><br>
-              Set the port to "1234" (or, if you modified the code, the port you set) and enable it:
+              포트를 "1234"로 설정합니다. (코드를 수정했다면, 그에 맞는 포트로 설정해주세요.) 그 후, 어답터를 활성화합니다:
               <picture>
                 <source srcset="/resources/documentations/pyscripts/wnp-customconfig.avif" type="image/avif">
                 <source srcset="/resources/documentations/pyscripts/wnp-customconfig.webp" type="image/webp">
-                <img src="/resources/documentations/pyscripts/wnp-customconfig.webp" alt="A photo of the Add custom adapter button in WebNowPlaying" width="392" height="105">
+                <img src="/resources/documentations/pyscripts/wnp-customconfig.webp" alt="커스텀 어답터 설정 화면의 사진" width="392" height="105">
               </picture><br>
             </p>
 
-            <h2>Usage instructions</h2>
+            <h2>사용 방법</h2>
 
-            <h3>Logging</h3>
+            <h3>로깅</h3>
 
             <p>
-              In a terminal: execute "webNowPlayingLogger.py".<br>
-              It'll create a file "wnplog.txt" with the log of played media, checking every second.<br>
+              터미널에서: "webNowPlayingLogger.py"를 실행하세요.<br>
+              실행 디렉토리에 "wnplog.txt" 파일이 생성됩니다. 매 초 새 노래가 재생되는지 확인합니다.<br>
             </p>
 
-            <h3>Reading</h3>
+            <h3>분석</h3>
 
             <p>
-              In a terminal: execute "wnpLogRead.py".<br>
-              Drag and drop, or provide a path to the log file.<br>
-              Select the option you'd like to execute.<br>
-              The log file is also human-readable.
+              터미널에서: "wnpLogRead.py"를 실행합니다.<br>
+              로그 파일을 터미널 창으로 드래그 앤 드롭하거나 경로를 제공합니다.<br>
+              실행하고자 하는 옵션을 선택합니다.<br>
+              또한, 로그 파일은 인간이 읽을 수 있는 포맷으로 저장됩니다.
             </p>
 
 
