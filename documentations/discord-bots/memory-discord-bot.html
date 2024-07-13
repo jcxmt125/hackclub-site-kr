@@ -1,12 +1,12 @@
 <!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <html lang="EN">
+    <meta name="description" content="커맨드 기반 다용도 디스코드 봇의 설명서">
+    <html lang="KR">
 
     
         <head>
-        <title>Documentation for memory Discord bot</title>
+        <title>다용도 디코봇 설명서</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300&display=swap" rel="stylesheet">
@@ -20,87 +20,88 @@
         </head>
         <body style="background-color:#202020;color:#F0F0F0">
 
-            <h1>Documentation for memory Discord bot</h1>
+            <h1>커맨드 기반 다용도 디스코드 봇의 설명서</h1>
 
             <h2>Source code</h2>
 
             <p>
-              <a style="color: #effab6;" href="https://github.com/jcxmt125/memory-discord-bot">Github repository</a><br>
+              <a style="color: #effab6;" href="https://github.com/jcxmt125/memory-discord-bot">깃헙 리포지토리</a><br>
             </p>
 
-            <h2>Environment configuration</h2>
+            <h2>환경 셋업</h2>
 
             <p>
-                First, git clone the repo.<br>
-                This bot requires additional modules: install them with "pip install -r requirements.txt".<br>
-                It is recommended to do this in a venv.<br>
-                If installing on a resource-constrained server, first run "pip install torch --no-cache-dir".<br>
-                You may have to resolve some errors. "sudo apt install libzbar0"<br>
-                See <a style="color: #effab6;" href="https://pypi.org/project/qreader/">here</a> for more information about QReader.<br>
+                우선, 리포지토리를 git clone 해주세요.<br>
+                zip 파일로 다운로드 받아도 작동은 하지만, 나중에 원활한 업데이트를 위해 git clone을 추천합니다.<br>
+                이 봇은 여러 파이썬 모듈을 필요로 합니다: "pip install -r requirements.txt"를 실행해 설치해주세요.<br>
+                venv 안에서 하는 것을 추천합니다.<br>
+                만약 리소스가 제한된 서버에 설치한다면, 우선 "pip install torch --no-cache-dir"를 실행해주세요.<br>
+                혹시 리눅스 서버에서 실행시 에러가 생긴다면, "sudo apt install libzbar0"로 디펜던시를 마저 설치해보세요.<br>
+                <a style="color: #effab6;" href="https://pypi.org/project/qreader/">여기</a>에서 QReader 모듈에 대한 더 많은 정보를 확인할 수 있습니다.<br>
             </p>
 
             <p>
-                This script requires a .env file:<br>
-                Cloudflare related:
+                이 프로젝트에는 .env 파일이 필요합니다:<br>
+                클라우드플레어 관련:
                 <ul>
-                    <li>CLOUDFLARE_AI_API_KEY: an API key with access to cloudflare's AI.</li>
-                    <li>CLOUDFLARE_AI_GATEWAY_SLUG: the slug you set for Cloudflare's AI gateway.</li>
-                    <li>CLOUDFLARE_USER_ID: Your cloudflare user ID: the string of letters and numbers after "dash.cloudflare.com" when logged in.</li>
-                    <li>CLOUDFLARE_RADAR_API_KEY: an API key with access to cloudflare radar.</li>
+                    <li>CLOUDFLARE_AI_API_KEY: Cloudflare Workers AI에 접근 권한이 있는 API 키.</li>
+                    <li>CLOUDFLARE_AI_GATEWAY_SLUG: Cloudflare AI gateway로 설정한 URL.</li>
+                    <li>CLOUDFLARE_USER_ID: 클라우드플레어 유저 ID: 대시보드 로그인 후 브라우저에서 "dash.cloudflare.com" 뒤에 표시되는 숫자와 문자의 조합.</li>
+                    <li>CLOUDFLARE_RADAR_API_KEY: Cloudflare radar 접근 권한이 있는 API 키.</li>
                 </ul>
-                Storage related:
+                저장 공간 관련:
                 <ul>
-                    <li>S3COMPAT_ENDPOINT_URL: The endpoint for the S3 API</li>
-                    <li>S3KEYID: Your S3 key ID</li>
-                    <li>S3SECRET: Your S3 secret</li>
-                    <li>S3_BUCKET_PUBLIC_URL: The public URL of your S3 bucket (will be displayed to users)</li>
-                    <li>S3_BUCKET_NAME: The name of your S3 bucket</li>
+                    <li>S3COMPAT_ENDPOINT_URL: S3 API의 엔드포인트 URL</li>
+                    <li>S3KEYID: S3 키의 ID</li>
+                    <li>S3SECRET: S3 키의 secret</li>
+                    <li>S3_BUCKET_PUBLIC_URL: 유저들에게 보여질 S3 퍼블릭 접근 URL</li>
+                    <li>S3_BUCKET_NAME: 사용할 S3 버킷의 이름</li>
                 </ul>
-                Other:
+                기타:
                 <ul>
-                    <li>GEMINI_API_KEY: get one from Google's AI studio. Most LLM requests will use this.</li>
-                    <li>DISCORD_BOT_TOKEN: get one from Discord developer portal.</li>
+                    <li>GEMINI_API_KEY: Google의 AI studio에서 발급받으세요. 대부분의 LLM 요청이 이 키를 기본으로 사용합니다.</li>
+                    <li>DISCORD_BOT_TOKEN: 디스코드 개발자 포탈에서 봇 토큰을 발급받으세요.</li>
                 </ul>
             </p>
 
             <p>
-                You need to install more programs not covered by Python dependancies:<br>
+                파이썬 모듈 외에 추가 프로그램 설치가 필요합니다:<br>
                 <ul>
-                    <li>ImageMagick: Install it, and test that you can access it either via "magick" or "convert".</li>
-                    <li>ffmpeg: Install it, and test you can access it on the cli.</li>
+                    <li>ImageMagick: 설치 후, "magick" 또는 "convert"로 CLI에서 접근 가능한지 확인해주세요.</li>
+                    <li>ffmpeg: 설치 후, CLI에서 접근 가능한지 확인해주세요.</li>
                 </ul>
-                Both need to be on your PATH.
+                두 개의 프로그램 모두 PATH에 있어야 합니다.
             </p>
 
-            <h2>Usage instructions</h2>
+            <h2>사용 방법</h2>
 
             <p>
-                Invite your bot to a server from the provided installation URL on the Discord developer portal.<br>
-                Create two directories: "ltmemories" and "stmemories".<br>
-                Run "bot.py". You must keep this running for the bot to work.<br>
-                On linux CLI, usage of tools such as "screen" is recommended.<br>
-                <b>This bot may take a while to start up on slow servers.</b><br>
-                Check that the bot appears "online".<br>
+                디스코드 개발자 포탈에서 받은 초대 URL을 이용해 봇을 서버에 초대하세요.<br>
+                디렉토리 2개를 생성해주세요: "ltmemories" 와 "stmemories".<br>
+                "bot.py"를 실행해주세요. 봇이 작동하기 위해 이 파일이 계속 실행중이어야 합니다.<br>
+                리눅스 CLI에서는, "screen"과 같은 도구 이용을 권장합니다.<br>
+                <b>느린 환경에서 봇이 켜지는데에 꽤 긴 시간이 소요될 수 있습니다.</b><br>
+                봇의 디스코드 상태가 "온라인"으로 표시되는지 확인해주세요.<br>
             </p>
 
             <p>
-                The default prefix is "?".<br>
-                Add the following command after the prefix to execute:<br>
+                기본 프리픽스는 "?"입니다.<br>
+                실행하려면 다음 커맨드를 프리픽스 뒤에 붙여 메시지로 보내세요:<br>
             </p>
 
             <ul>
-                <li>llmreq [message]: Straight request to the LLM backend. No configuration / additional features. Only supports text.</li>
-                <li>dumpMemory: Sends your memory files to the channel.</li>
-                <li>current: Checks whether you are in a conversation, and whether it is "stale".</li>
-                <li>finish: Finishes the current conversation, wiping the short term memory and appending to long term memory.</li>
-                <li>stmemPurge: Purges short term memory <b>without appending to long term memory</b>.</li>
-                <li>deregisterAllMemory: <b>Permanently deletes all memory.</b> Use with caution.</li>
-                <li>talk [message]: Do conversation with the bot, using its LLM backend. Short term memory will be automatically cleared if the conversation is "stale".</li>
-                <li>transcribe [attachment(s) (optional)]: Transcribes audio files with OpenAI whisper running on Cloudflare AI.</li>
-                <li>ytdlAudio [URL]: Downloads an audio file from YouTube. (uses ffmpeg)</li>
-                <li>convert [attachment(s)] [target format]: uses ffmpeg or imagemagick depending on the file's MIME type, to convert to the target format.</li>
-                <li>ffmpeg [attachment(s)] [target format]: same as above, force use of ffmpeg.</li>
-                <li>magick [attachment(s)] [target format]: same as above, force use of imagemagick.</li>
+                <li>llmreq [메시지]: LLM 백엔드로 바로 요청합니다. 텍스트만 지원합니다.</li>
+                <li>dumpMemory: 유저 메모리 파일을 이 채널로 전송합니다.</li>
+                <li>current: 지금 대화중인지, 그 대화가 "오래되었는지" 확인합니다.</li>
+                <li>finish: 현재 대화를 끝맺습니다. 단기 기억을 요약해 장기 기억에 저장하고, 단기 기억은 삭제합니다.</li>
+                <li>stmemPurge: 단기 기억을 <b>장기 기억에 저장하지 않고</b> 삭제합니다.</li>
+                <li>deregisterAllMemory: <b>모든 기억을 영구적으로 삭제합니다.</b> 조심해서 사용하세요.</li>
+                <li>talk [메시지]: LLM 백엔드를 이용하여 봇과 대화합니다. 오래된 대화인 경우 단기 기억이 자동으로 장기 기억으로 옮겨집니다.</li>
+                <li>transcribe [첨부 파일 (여러개) (선택)]: Cloudflare AI에서 실행되는 OpenAI whisper를 이용해 오디오 파일을 텍스트로 변환합니다.</li>
+                <li>ytdlAudio [URL]: YouTube에서 오디오 파일을 다운로드 합니다. (ffmpeg로 파일을 변환합니다)</li>
+                <li>convert [첨부 파일 (여러개)] [타겟 포맷]: ffmpeg나 imagemagick을 MIME 타입에 따라 선택해, 타겟 포맷으로 변환합니다.</li>
+                <li>ffmpeg [첨부 파일 (여러개)] [타겟 포맷]: same as above, force use of ffmpeg.</li>
+                <li>magick [첨부 파일 (여러개)] [타겟 포맷]: same as above, force use of imagemagick.</li>
                 <li>urlscan [URL]: Scans URL with cloudflare radar.</li>
                 <li>qrscan [attachment(s) (optional)]: scans for QR codes in attached image.</li>
                 <li>publish [attachment(s) (optional)]: publishes a txt file as an HTML file to the S3 bucket.</li>
