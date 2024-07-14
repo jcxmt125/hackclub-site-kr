@@ -22,7 +22,7 @@
 
             <h1>커맨드 기반 다용도 디스코드 봇의 설명서</h1>
 
-            <h2>Source code</h2>
+            <h2>소스 코드</h2>
 
             <p>
               <a style="color: #effab6;" href="https://github.com/jcxmt125/memory-discord-bot">깃헙 리포지토리</a><br>
@@ -100,55 +100,56 @@
                 <li>transcribe [첨부 파일 (여러개) (선택)]: Cloudflare AI에서 실행되는 OpenAI whisper를 이용해 오디오 파일을 텍스트로 변환합니다.</li>
                 <li>ytdlAudio [URL]: YouTube에서 오디오 파일을 다운로드 합니다. (ffmpeg로 파일을 변환합니다)</li>
                 <li>convert [첨부 파일 (여러개)] [타겟 포맷]: ffmpeg나 imagemagick을 MIME 타입에 따라 선택해, 타겟 포맷으로 변환합니다.</li>
-                <li>ffmpeg [첨부 파일 (여러개)] [타겟 포맷]: same as above, force use of ffmpeg.</li>
-                <li>magick [첨부 파일 (여러개)] [타겟 포맷]: same as above, force use of imagemagick.</li>
-                <li>urlscan [URL]: Scans URL with cloudflare radar.</li>
-                <li>qrscan [attachment(s) (optional)]: scans for QR codes in attached image.</li>
-                <li>publish [attachment(s) (optional)]: publishes a txt file as an HTML file to the S3 bucket.</li>
-                <li>qrcode [text]: generates a QR code. (uses imagemagick)</li>
+                <li>ffmpeg [첨부 파일 (여러개)] [타겟 포맷]: 위와 같습니다만, ffmpeg 사용을 강제합니다.</li>
+                <li>magick [첨부 파일 (여러개)] [타겟 포맷]: 위와 같습니다만 imagemagick 사용을 강제합니다.</li>
+                <li>urlscan [URL]: Cloudflare radar를 이용해 URL을 스캔합니다.</li>
+                <li>qrscan [첨부 파일 (여러개) (선택)]: 이미지 내의 QR 코드를 스캔합니다.</li>
+                <li>publish [첨부 파일 (여러개) (선택)]: S3 버킷으로 HTML로 변환된 txt 파일을 업로드합니다.</li>
+                <li>qrcode [텍스트]: QR 코드를 생성합니다. (imagemagick으로 압축해서 업로드)</li>
             </ul>
 
             <p>
-                The bot can only send files up to 25mbs, without relation to your Discord Nitro status.<br>
-                Files that fail to send may cause the bot to silently fail.<br>
-                In case you are running this bot on a VPS provider, please mind the egress fee.<br>
-                The bot is designed to minimize egress whenever possible, by converting images to webp.<br>
-                However, this protection does not extend to usage of the convert command.<br>
-                For extremely long text resopnses, the bot will try to fall back to .txt files.<br>
-                When using some commands, the bot might take a bit to respond based on your server's speed (both network and CPU).<br>
-                Use caution when using resource-intensove commands on resource-constrained servers. <b>It may cause the entire bot to crash.</b>
+                봇은 기본적으로 최대 25 메가바이트의 파일을 업로드할 수 있습니다.<br>
+                유저의 Discord Nitro (니트로) 상태와는 관계 없습니다만, 서버의 부스트 상태가 높다면 더 큰 파일을 전송 가능할 수도 있습니다.<br>
+                전송을 실패한 파일은 봇이 에러 메시지를 보내지 못하고 커맨드를 처리하지 못하게 할 수 있습니다.<br>
+                VPS/클라우드 서버에서 이 봇을 구동한다면, 이그레스 비용에 대해 꼭 생각해주세요.<br>
+                이미지 전송과 관련된 대부분의 기능에서, 이 봇은 webp 파일로의 변환을 통해 가능한 한 이그레스 비용을 최소화하게 디자인되어 있습니다.<br>
+                이 안전장치는 convert 또는 비슷한 커맨드에 대해 적용되지 않습니다.<br>
+                혹시 응답이 너무 길다면, 자동으로 .txt 파일로 메시지를 보내려 시도합니다.<br>
+                일부 커맨드 사용시, 실행되는 서버의 CPU와 네트워크 성능에 따라 봇이 응답하는데 약간의 시간이 걸릴 수 있습니다.<br>
+                무거운 커맨드를 사용할 때에는 주의해주세요. <b>서버 성능에 따라 봇이나 다른 프로세스가 완전히 정지될 수 있습니다.</b>
             </p>
 
             <p>
-                To update the bot, run git pull in the directory of the bot.py file.<br>
-                Updating may change dependancies. Run pip install -r requirements.txt again.<br>
+                봇을 업데이트하려면, git pull을 봇 디렉토리에서 실행해주세요.<br>
+                업데이트로 인해 새로운 모듈이 필요할 수 있습니다. pip install -r requirements.txt를 다시 실행해주세요.<br>
             </p>
 
-            <h2>Privacy / Security</h2>
+            <h2>보안과 개인 정보 보호</h2>
 
             <p>
-                When AI features are used, the bot sends the text to Google's Gemini API for analysis.<br>
-                On free tier, Google may use this collected data to improve its models.<br>
+                AI 기능을 사용할 때, 관련 텍스트를 구글의 Gemini API로 전송합니다.<br>
+                무료 티어를 사용중이신 경우, 구글이 이 전송된 텍스트를 모델 훈련에 사용할 수 있습니다.<br>
             </p>
 
             <p>
-                When "attachment optional" features are used, the bot will scan some previous messages (5 by default) to find the required file.<br>
-                If possible, attach the file to the command message directly.<br>
+                "첨부파일 선택"인 기능을 첨부파일 없이 사용하면, 봇은 몇 개 (기본적으로 5개)의 메시지를 스캔해 필요한 파일을 찾으려 합니다.<br>
+                가능하다면 커맨드를 보내는 메시지에 첨부파일을 직접 첨부해주세요.<br>
                 <br>
-                Nothing is logged to a file by default.<br>
-                Some things are printed to the terminal.<br>
+                파일을 이용한 로깅은 기본적으로 존재하지 않습니다.<br>
+                일부 내용은 터미널에 출력될 수 있습니다.<br>
                 <br>
-                The bot shouldn't be able to execute any code.<br>
-                However, some features will cause files to be downloaded to the server briefly while it processes.<br>
-                They will be deleted as soon as feasible.<br>
+                봇이 기본적으로 입력받은 코드를 실행하는 일은 없을 것입니다.<br>
+                하지만, 일부 기능은 처리를 위해 봇이 실행되는 서버로 파일을 잠시 다운로드 합니다.<br>
+                이 파일들은 가능한 한 빠르게 삭제됩니다.<br>
             </p>
 
-            <h2>Fallbacks</h2>
+            <h2>에러 대응 기능</h2>
 
             <p>
-                The bot will fall back to Cloudflare AI's Llama 3 model in case Gemini API fails.<br>
-                This may be due to a rate limit, or because something else happened.<br>
-                You may notice degraded performance when this happends.<br>
+                Gemini API를 이용한 LLM 기능의 사용 중 에러가 발생하면, 일부 기능에 대해 Cloudflare AI에서 실행되는 Llama 3 모델로 대체합니다.<br>
+                Gemini API의 레이트 제한에 부딪혔거나, 다른 이유로 인해 이런 상황이 발생할 수 있습니다.<br>
+                이런 경우, 낮아진 성능 (속도와 품질 모두에서)를 경험할 수도 있습니다.<br>
             </p>
 
         </body>
