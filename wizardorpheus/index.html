@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="EN">
+<html lang="KR">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Wizard Orpheus game app</title>
+    <title>Wizard Orpheus 게임</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300&display=swap" rel="stylesheet">
@@ -29,14 +29,17 @@
 </head>
 
 <body>
-    <p>Your job is to convince an AI to help you out. It seems not to be in the mood for it though... Try conversing with it, and getting its mood up to 100!</p>
+    <p>
+      당신은 어떤 인공지능과 대화중인데, 뭔가 기분이 좋지 않은 것 같네요... 대화하며 인공지능의 기분을 100까지 올려보세요!<br>
+      주의: 한국어로는 테스트가 엄밀하게 이루어지지 않았습니다.
+    </p>
     <div id="conversation">
     </div>
 
-    <textarea id="input" placeholder="Type here, and press enter to submit."></textarea>
+    <textarea id="input" placeholder="여기에 메시지를 입력하고, 엔터 키를 눌러 보내세요."></textarea>
     <br>
 
-    <p>AI's mood: <span id="score">-50</span></p>
+    <p>AI 기분: <span id="score">-50</span></p>
 
     <script src="https://wizard-orpheus.hackclub.dev/wizard_orpheus.js"></script>
     <script src="script.js"></script>
