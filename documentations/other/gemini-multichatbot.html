@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="제미나이 기반 다용도 챗봇의 설명서">
+    <html lang="KR">
+
+    
+        <head>
+        <title>제미나이 다용도 설명서</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300&display=swap" rel="stylesheet">
+        <style>
+          body {
+            font-family: 'IBM Plex Sans KR', sans-serif;;
+            padding: 10px;
+            line-height: 200%;
+          }
+        </style>
+        </head>
+        <body style="background-color:#202020;color:#F0F0F0">
+
+            <h1>제미나이 기반 다용도 챗봇의 설명서</h1>
+
+            <h2>소스 코드</h2>
+
+            <p>
+              <a style="color: #effab6;" href="https://github.com/jcxmt125/gemini-multipurpose-chatbot">깃헙 리포지토리</a><br>
+            </p>
+
+            <h2>환경 셋업</h2>
+
+            <p>
+                우선, 리포지토리를 git clone 해주세요.<br>
+                zip 파일로 다운로드 받아도 작동은 하지만, 나중에 원활한 업데이트를 위해 git clone을 추천합니다.<br>
+                이 봇은 여러 파이썬 모듈을 필요로 합니다: "pip install -r requirements.txt"를 실행해 설치해주세요.<br>
+                venv 안에서 하는 것을 추천합니다.<br>
+            </p>
+
+            <p>
+                이 프로젝트에는 .env 파일이 필요합니다:<br>
+                클라우드플레어 관련:
+                <ul>
+                    <li>CLOUDFLARE_AI_API_KEY: Cloudflare Workers AI에 접근 권한이 있는 API 키.</li>
+                    <li>CLOUDFLARE_AI_GATEWAY_SLUG: Cloudflare AI gateway로 설정한 URL.</li>
+                    <li>CLOUDFLARE_USER_ID: 클라우드플레어 유저 ID: 대시보드 로그인 후 브라우저에서 "dash.cloudflare.com" 뒤에 표시되는 숫자와 문자의 조합.</li>
+                    <li>CLOUDFLARE_RADAR_API_KEY: Cloudflare radar 접근 권한이 있는 API 키.</li>
+                </ul>
+                저장 공간 관련:
+                <ul>
+                    <li>S3COMPAT_ENDPOINT_URL: S3 API의 엔드포인트 URL</li>
+                    <li>S3KEYID: S3 키의 ID</li>
+                    <li>S3SECRET: S3 키의 secret</li>
+                    <li>S3_BUCKET_PUBLIC_URL: 유저들에게 보여질 S3 퍼블릭 접근 URL</li>
+                    <li>S3_BUCKET_NAME: 사용할 S3 버킷의 이름</li>
+                </ul>
+                기타:
+                <ul>
+                    <li>GEMINI_API_KEY: Google의 AI studio에서 발급받으세요. 대부분의 LLM 요청이 이 키를 기본으로 사용합니다.</li>
+                </ul>
+            </p>
+
+            <p>
+                파이썬 모듈 외에 추가 프로그램 설치가 필요합니다:<br>
+                <ul>
+                    <li>ImageMagick: 설치 후, "magick" 또는 "convert"로 CLI에서 접근 가능한지 확인해주세요.</li>
+                    <li>ffmpeg: 설치 후, CLI에서 접근 가능한지 확인해주세요.</li>
+                </ul>
+                두 개의 프로그램 모두 PATH에 있어야 합니다.
+            </p>
+
+            <h2>사용 방법</h2>
+
+            <p>
+                main.py를 실행하고, 표시되는 설명을 따라주세요.<br>
+                config.json 파일이 생성됩니다.<br>
+                이 파일에는 봇의 "성격", 유저에 대한 기억 등이 저장됩니다.<br>
+                인간이 읽을 수 있는 형식으로 저장됩니다. 설정을 변경하실 수 있지만, 주의해주세요.<br>
+                (설정 편집 기능은 추후 업데이트 예정입니다!)
+            </p>
+
+            <p>
+                대화하려면 베시지를 입력하고 엔터키를 누르세요.<br>
+                파일 첨부에 대한 메시지가 표시됩니다.<br>
+                다시 엔터를 눌러 무시하거나, 파일을 끌어다 놓으세요.<br>
+                디렉토리에 영어를 제외한 글자나 스페이스가 있다면 에러가 발생할 수 있습니다.<br>
+                더 간단한 디렉토리로 파일을 이동하거나 이름을 변경하고 다시 시도해주세요!<br>
+            </p>
+
+            <p>
+                도구 사용을 위해서는 메시지의 시작에 +를 추가해주세요.<br>
+                예를 들어, +영상 변환 도와줘 와 같이 요청해주세요.<br>
+                가능하다면, 알맞은 도구 사용을 도와줄겁니다.<br>
+                현재 다음 도구를 사용할 수 있습니다:<br>
+                <ul>
+                    <li>ffmpeg*: 영상/오디오 변환</li>
+                    <li>imagemagick*: 이미지 변환</li>
+                    <li>qreader: QR 코드 스캔</li>
+                    <li>pyqrcode: QR 코드 생성</li>
+                    <li>stable diffusion: (CF AI의 SDXL 모델) 이미지 생성</li>
+                    <li>Whisper: (설정에 따라 로컬 또는 CF AI) 오디오 음성 변환</li>
+                </ul>
+                별표로 마킹된 도구는 CLI 도구를 사용합니다.<br>
+                꼭 설치해주세요!
+            </p>
+
+            <p>
+                사용 가능한 슬래시 커맨드가 있습니다. /h 로 도움말을 불러오세요.<br>
+                /c 로 단기기억을 삭제하고 장기기억에 편입할 수 있습니다.<br>
+                /e 는 위와 같지만, 프로그램을 종료합니다.<br>
+                /f 로 단기 기억을 장기 기억 저장 없이 삭제할 수 있습니다.<br>
+                스크립트에서는 첫 글자만 처리합니다.
+            </p>
+
+            <p>
+                프로젝트를 업데이트하려면, git pull을 프로젝트의 디렉토리에서 실행해주세요.<br>
+                업데이트로 인해 새로운 모듈이 필요할 수 있습니다. pip install -r requirements.txt를 다시 실행해주세요.<br>
+            </p>
+
+            <h2>보안과 개인 정보 보호</h2>
+
+            <p>
+                대화 내용은 구글의 Gemini API로 전송됩니다.<br>
+                무료 티어를 사용중이신 경우, 구글이 이 전송된 텍스트를 모델 훈련에 사용할 수 있습니다.<br>
+            </p>
+
+            <p>
+                대화의 요약본이 플레인텍스트로 저장됩니다.<br>
+                <br>
+                몇 개 도구는 CLI 도구를 사용합니다.<br>
+            </p>
+
+            <h2>에러 대응 기능</h2>
+
+            <p>
+                에러 발생 시 일부 기능을 Cloudflare AI에서 실행되는 Llama 3 모델로 대체합니다.<br>
+                판독 기능만 이렇게 실행됩니다.<br>
+            </p>
+
+        </body>
+    </html>
