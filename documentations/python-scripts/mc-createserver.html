@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="mc-createserver.py 설명서">
+    <html lang="KR">
+
+    
+        <head>
+        <title>mc-createserver.py 설명서</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300&display=swap" rel="stylesheet">
+        <style>
+          body {
+            font-family: 'IBM Plex Sans KR', sans-serif;;
+            padding: 10px;
+            line-height: 200%;
+          }
+        </style>
+        </head>
+        <body style="background-color:#202020;color:#F0F0F0">
+
+            <h1>mc-createserver.py 설명서</h1>
+
+            <h2>소스 코드</h2>
+
+            <p>
+              <a style="color: #effab6;" href="https://github.com/jcxmt125/side-projects/blob/main/python%20scripts/mc-serverdeploy.py">파이썬 스크립트</a><br>
+            </p>
+
+            <h2>환경 셋업</h2>
+
+            <p>
+              이 스크립트는 추가 모듈을 필요로 하지 않습니다.<br>
+            </p>
+
+            <p>
+              이 스크립트는 .env 파일을 필요로 하지 않습니다.<br>
+            </p>
+
+            <h2>서버에서 사용</h2>
+
+            <p>
+              이 스크립트는 리눅스 서버에 마인크래프트 서버의 설치를 도와줍니다.<br>
+              우선, 파이썬 파일을 마인크래프트 서버를 설치하고자 하는 디렉토리로 이동하세요.<br>
+              파이썬 파일을 실행합니다. 몇 개의 질문을 물어볼 거에요.<br>
+              설명을 따라 현재 디렉토리로 마인크래프트 서버를 설치합니다.<br>
+              완료 후 표시되는 커맨드를 이용해 서버를 시작할 수 있습니다.<br>
+              완료 후에는 파이썬 스크립트를 삭제하셔도 됩니다.<br>
+            </p>
+
+            <h2>오라클 무료 티어로 배포하는 법</h2>
+
+            <p>
+              <a style="color: #effab6;" href="https://blogs.oracle.com/developers/post/how-to-set-up-and-run-a-really-powerful-free-minecraft-server-in-the-cloud">이 공식 가이드</a>를 기반으로 작성되었습니다.<br>
+              참고: 오라클을 사용하는 이유는 가장 높은 무료 티어 제한 때문입니다.<br>
+              이 내용은 언제든 변경될 수 있습니다.<br>
+              이 가이드를 이용해 발생하는 재정적 문제에 대해 책임질 수 없습니다.<br>
+            </p>
+
+            <h3>OCS에 가입</h3>
+
+            <p>
+              <a style="color: #effab6;" href="https://www.oracle.com/cloud/free/">무료 티어 설명 웹사이트</a>에 접속해 <i>내용을 조심히 읽어보세요</i>.<br>
+              무엇이 무료이고 무엇에 비용이 청구되는지 이해하세요.<br>
+              항상 무료 (Always Free) 카테고리의 "Arm compute instance"를 사용합니단.<br>
+              무료로 시작하기 (start for free)를 클릭하고, 회원 가입을 시작합니다.<br>
+            </p>
+
+            <p>
+              개인 정보를 입력해야 합니다.<br>
+              <b>동의하는 약관을 자세히 읽어보세요.</b><br>
+              <b>모든 경고를 자세히 읽어보세요. "A1 compute instance"와 관련된 경고는 특히 중요합니다.</b><br>
+              Home region을 고를 때에는 특히 주의하세요.<br>
+              경고에 나와있듯이, 나중에 변경할 수 없습니다.<br>
+              개인 정보를 입력할 때 주의해주세요. 나중에 법적 문제가 생길 수 있습니다.<br>
+              이전에 말했듯, 이 가이드는 참고용이며, 어떤 보장도 드리지 못합니다.<br>
+            </p>
+
+            <p>
+              결제 정보가 필요합니다.<br>
+              카드에 1.5sgd 내외의 임시 청구가 발생합니다.<br>
+              비자, 마스터, 아멕스 중 하나의 해외결제가 사용 가능한 카드를 이용해주세요.<br>
+              무료 체험 시작하기 (start my free trial)를 눌러 시작하세요.<br>
+              그 후, 계정이 준비되는 동안 잠시 기다리세요.<br>
+            </p>
+
+            <p>
+              생성된 계정으로 로그인합니다.<br>
+              비밀번호 관리자가 비밀번호를 제대로 저장하지 못했을 수도 있으니, 첫 한 번은 직접 찾아서 입력해야 할 수도 있습니다.<br>
+              2단계 인증 설정을 <b>강력히</b> 권장합니다.
+            </p>
+
+
+            <h3>A1 인스턴스 배포하기</h3>
+
+            <p>
+              계정에 로그인 후, 시작하기 (get started) 탭으로 향합니다. 기본적으로 여기로 리디렉트 될거에요.<br>
+              "launch resources" 카테고리 아래의 "create a VM instance"를 클릭합니다.<br>
+              이 가이드에서 말씀드리지 않았다면, 기본값이 정상적으로 설정되어 있을 것입니다.<br>
+            </p>
+
+            <p>
+              "image and shape" 메뉴를 찾아주세요.<br>
+              편집 (edit)을 눌러 편집을 시작합니다.<br>
+              "change shape"를 누르고, "Ampere"를 선택합니다.<br>
+              "VM.Standard.A1.Flex" 옆의 체크박스를 선택합니다.<br>
+              원하는 양의 CPU와 RAM을 배정합니다. 최대 OCPU 4개와 RAM 24GB를 무료로 받을 수 있습니다.<br>
+              이 옵션은 나중에 수정할 수 있습니다!<br>
+              "select shape"를 눌러 저장하세요.<br>
+              "Always Free-eligible"이 계속 표시되는지 확인해 주세요.
+            </p>
+
+            <p>
+              다음으로는 SSH를 셋업합니다.<br>
+              이미 익숙한가요? 키 파일을 업로드해 주세요.<br>
+              그렇지 않다면, <b>지금 키 파일을 다운로드 해주세요.</b><br>
+              <b>특히 Private key (비공개 키)는 다시 표시되지 않습니다.</b><br>
+              이 키 없이는 가상 머신에 접근할 수 <i>없습니다</i>.<br>
+            </p>
+
+            <p>
+              저장 공간 설정은 기본으로 유지해도 괜찮습니다.<br>
+              Create (생성) 버튼을 눌러 가상 머신을 생성하세요.<br>
+              에러가 발생할 수 있습니다만, 이는 Oracle 측의 용량 부족 문제로, 해결될 때 까지 시간이 필요할 수 있습니다.<br>
+            </p>
+
+            <h3>마인크래프트 서버를 준비하고 배포하기</h3>
+
+            <p>
+              서버가 준비되었나요? 이제 SSH로 연결할게요.<br>
+              공개 IPv4 주소, "Public IPv4 address"가 필요합니다.<br>
+              "ssh opc@[IP address] -i [다운로드한 .key 파일 경로]" 를 명령줄에 입력하세요.<br>
+              "yes"를 입력해 이 서버를 신뢰합니다.<br>
+              연결이 완료되고, 이제 서버에서 명령을 실행할 수 있습니다.<br>
+            </p>
+
+            <p>
+              다음으로는 파이썬 스크립트를 다운로드합니다.<br>
+              우선 원하는 디렉토리로 cd하세요.<br>
+              다음, 이 명령어를 붙여넣고 실행합니다:<br>
+              curl -OJ https://raw.githubusercontent.com/jcxmt125/side-projects/main/python%20scripts/mc-serverdeploy.py<br>
+              다음으로는 Java를 설치합니다.<br>
+              yum list jdk* 를 실행하고 잠시 기다려주세요.<br>
+              결과값을 읽은 뒤, 가장 최신 버젼의 JDK를 설치하세요.<br>
+              jdk-[version-number]-... 와 같이 생겼습니다. 있다면 Headless 옵션을 선택해주세요.<br>
+              sudo yum install [패키지 이름] 을 실행하세요.<br>
+              확인창에 y를 입력해 설치를 계속하세요.<br>
+              그 후, 파이썬 스크립트를 실행해 설명을 따라주세요.<br>
+            </p>
+
+            <p>
+              서버를 시작할 준비가 되었습니다.<br>
+              파이썬 스크립트가 제공한 명령어를 기억하거나 적어두세요.<br>
+              SSH 세션을 아직 닫지 말고 데스크탑으로 돌아와주세요.<br>
+            </p>
+
+            <h3>네트워크 설정</h3>
+
+            <p>
+              이제 서버 연결을 설정합니다.<br>
+              실행되고 있는 서버의 설정 화면에서, 서브넷 링크를 클릭합니다.<br>
+              By default, it should look like subnet-[date]-[time].<br>
+              Click on "Default Security list for..."<br>
+              Click the "Add ingress rules" button.<br>
+              Set Source CIDR to 0.0.0.0/0, and Destination Port range to 25565.<br>
+              Click "Add ingress rules".<br>
+            </p>
+
+            <p>
+              Go back to the SSH session.<br>
+              Run these commands in your terminal:<br>
+              sudo firewall-cmd --permanent --zone=public --add-port=25565/tcp<br>
+              sudo firewall-cmd --permanent --zone=public --add-port=25565/udp<br>
+              sudo firewall-cmd --reload<br>
+            </p>
+
+            <p>
+              You can optionally connect your server to a domain.<br>
+              Add an A record for the public IP address.<br>
+              If you're using Cloudflare: Make sure you turn proxying off.<br>
+            </p>
+
+            <h3>Start and connect to the server</h3>
+
+            <p>
+              Run the provided command.<br>
+              It is recommended to do this in, for example, a "screen", so as not to lose your connection.<br>
+              You server should start up!<br>
+              In your Minecraft client, add the server.<br>
+              In multiplayer, "add server".<br>
+              Input the IP address, or your configured domain.<br>
+              You should be able to connect now!
+            </p>
+
+            <h3>Stopping the server</h3>
+
+            <p>
+              You shouldn't need to stop the server, but if you need to for some reason, type stop and return.<br>
+              You can configure it as you like, but this script can't help with that.
+            </p>
+
+        </body>
+    </html>
