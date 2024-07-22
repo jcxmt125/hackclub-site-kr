@@ -160,44 +160,44 @@
             <p>
               이제 서버 연결을 설정합니다.<br>
               실행되고 있는 서버의 설정 화면에서, 서브넷 링크를 클릭합니다.<br>
-              By default, it should look like subnet-[date]-[time].<br>
-              Click on "Default Security list for..."<br>
-              Click the "Add ingress rules" button.<br>
-              Set Source CIDR to 0.0.0.0/0, and Destination Port range to 25565.<br>
-              Click "Add ingress rules".<br>
+              subnet-[date]-[time]과 같은 형식이 기본값입니다.<br>
+              "Default Security list for..." 을 클릭합니다.<br>
+              "Add ingress rules" 버튼을 클릭합니다.<br>
+              Source CIDR 는 0.0.0.0/0, Destination Port range 는 25565로 설정합니다.<br>
+              "Add ingress rules"를 눌러 저장합니다.<br>
             </p>
 
             <p>
-              Go back to the SSH session.<br>
-              Run these commands in your terminal:<br>
+              SSH 세션으로 돌아가주세요.<br>
+              터미널에서 다음 3개의 커맨드를 실행합니다:<br>
               sudo firewall-cmd --permanent --zone=public --add-port=25565/tcp<br>
               sudo firewall-cmd --permanent --zone=public --add-port=25565/udp<br>
               sudo firewall-cmd --reload<br>
             </p>
 
             <p>
-              You can optionally connect your server to a domain.<br>
-              Add an A record for the public IP address.<br>
-              If you're using Cloudflare: Make sure you turn proxying off.<br>
+              선택적으로 더 쉬운 연결을 위해 IP 주소를 도메인에 연결하세요.<br>
+              Public IP address에 대한 A 레코드를 만들어주세요.<br>
+              Cloudflare를 사용중이라면 이 레코드에 대해 프록시 기능 (주황 구름)을 꺼주세요.<br>
             </p>
 
-            <h3>Start and connect to the server</h3>
+            <h3>서버 시작하고 접속하기</h3>
 
             <p>
-              Run the provided command.<br>
-              It is recommended to do this in, for example, a "screen", so as not to lose your connection.<br>
-              You server should start up!<br>
-              In your Minecraft client, add the server.<br>
-              In multiplayer, "add server".<br>
-              Input the IP address, or your configured domain.<br>
-              You should be able to connect now!
+              스크립트가 제공한 명령어를 실행합니다.<br>
+              SSH 환경을 접속 해제했을 때 서버가 계속해서 실행되도록 Screen이나 Tmux에서 실행하는 것을 추천합니다.<br>
+              서버가 곧 시작됩니다!<br>
+              마인크래프트 클라이언트에서, 서버를 추가해주세요.<br>
+              멀티플레이를 클릭하고, "서버 추가"를 클릭해주세요.<br>
+              IP 주소나, 설정된 도메인을 입력합니다.<br>
+              이제 연결할 수 있습니다!
             </p>
 
-            <h3>Stopping the server</h3>
+            <h3>서버 멈추기</h3>
 
             <p>
-              You shouldn't need to stop the server, but if you need to for some reason, type stop and return.<br>
-              You can configure it as you like, but this script can't help with that.
+              서버를 멈출 필요는 없을 것이지만, 필요하다면, 서버가 실행되고 있는 창에 "stop"을 입력하고 엔터를 누릅니다.<br>
+              서버의 설정을 변경할 수 있지만, 이 스크립트는 그것까지는 도와드리지 않습니다.
             </p>
 
         </body>
