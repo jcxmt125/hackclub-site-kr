@@ -61,7 +61,7 @@
               필요한 파일을 서버로 다운로드 할 수 있습니다.<br>
               마인크래프트 서버를 설치할 디렉토리로 cd합니다.<br>
               다음 명령을 실행해 서버 셋업 도우미 스크립트를 다운로드하세요:<br>
-              curl -OJ https://raw.githubusercontent.com/jcxmt125/side-projects/main/python%20scripts/mcs-deploy-config/mcs-deploy-config.py<br>
+              curl -OJ https://raw.githubusercontent.com/jcxmt125/side-projects/main/python%20scripts/kr/mcs-deploy-config/mcs-deploy-config.py<br>
               다음, scp와 같은 방식으로 같은 디렉토리에 설정 파일을 업로드하세요.<br>
               자바/JRE 또한 필요합니다.<br>
             </p>
@@ -84,7 +84,7 @@
 
             <p>
               메인 스크립트를 다운로드 한 뒤, 다음 명령을 실행합니다:<br>
-              curl -OJ https://raw.githubusercontent.com/jcxmt125/side-projects/main/python%20scripts/mcs-deploy-config/mcs-oraclefree-wrapper.py<br>
+              curl -OJ https://raw.githubusercontent.com/jcxmt125/side-projects/main/python%20scripts/kr/mcs-deploy-config/mcs-oraclefree-wrapper.py<br>
               설정 파일 또한 준비해주세요.<br>
             </p>
 
@@ -119,7 +119,7 @@
 
             <p>
               메인 스크립트를 다운로드 한 뒤, 다음 명령을 실행합니다:<br>
-              curl -OJ https://raw.githubusercontent.com/jcxmt125/side-projects/main/python%20scripts/mcs-deploy-config/mcs-ubuntu-wrapper.py<br>
+              curl -OJ https://raw.githubusercontent.com/jcxmt125/side-projects/main/python%20scripts/kr/mcs-deploy-config/mcs-ubuntu-wrapper.py<br>
               설정 파일 또한 준비해주세요.<br>
             </p>
 
@@ -159,19 +159,18 @@
             <h3>모드 변경 및 업데이트하기</h3>
 
             <p>
-              On your desktop, download the update config generation script.<br>
-              Run it, and add the mods you want to update the server with.<br>
-              Add all the mods, even ones that didn't get a update, as it'll delete the entire md directory and update it with this list.<br>
-              Save and transfer the config file.<br>
+              컴퓨터로 업데이트 설정 생성 스크립트를 다운로드합니다.<br>
+              실행한 뒤, 서버에 추가하고 싶은 모드를 전부 설정합니다.<br>
+              이미 있는 모드를 포함해 모든 모드를 포함시켜주세요. 현재 모드 디렉토리를 삭제하고 이 리스트로 대체합니다.<br>
+              설정 파일을 저장하고 서버로 업로드하세요.<br>
             </p>
 
             <p>
-              On your server, open another tmux or screen session.<br>
-              cd into the server directory, then download the upgrade assistant script with the following:<br>
-              curl -OJ https://raw.githubusercontent.com/jcxmt125/side-projects/main/python%20scripts/mcs-deploy-config/mcs-make-config.py<br>
-              After you verify the script and the config file is ready, stop the minecraft server.<br>
-              Execute the scrip, provide the config file (It may also be a 'full' config file), and it should be done fairly quickly.<br>
-              Start the minecraft server.<br>
+              서버에서 마인크래프트 서버가 설치된 디렉토리로 cd하고, 다음 명령을 실행하세요:<br>
+              curl -OJ https://raw.githubusercontent.com/jcxmt125/side-projects/main/python%20scripts/kr/mcs-deploy-config/mcs-make-config.py<br>
+              설정 파일을 확인 후, 마인크래프트 서버를 정지하세요. (stop을 입력하세요)<br>
+              스크립트를 실행한 뒤, 설정 파일의 이름을 입력하세요. (서버 셋업 설정 파일도 이해합니다)<br>
+              잠시 후, 스크립트가 종료되며 모드가 업데이트됩니다. 마인크래프트 서버를 재시작하세요.<br>
             </p>
 
         </body>
