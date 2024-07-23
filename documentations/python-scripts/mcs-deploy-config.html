@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="mcs-deploy-config 시리즈의 파이썬 스크립트의 설명서">
+    <html lang="KR">
+
+    
+        <head>
+        <title>mcs-deploy-config 설명</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300&display=swap" rel="stylesheet">
+        <style>
+          body {
+            font-family: 'IBM Plex Sans KR', sans-serif;;
+            padding: 10px;
+            line-height: 200%;
+          }
+        </style>
+        </head>
+        <body style="background-color:#202020;color:#F0F0F0">
+
+            <h1>mcs-deploy-config 설명서</h1>
+
+            <h2>소스 코드</h2>
+
+            <h3>서버측</h3>
+
+            <p>
+              <a style="color: #effab6;" href="https://github.com/jcxmt125/side-projects/blob/main/python%20scripts/mcs-deploy-config/mcs-deploy-config.py">배포 스크립트 (메인)</a><br>
+              <a style="color: #effab6;" href="https://github.com/jcxmt125/side-projects/blob/main/python%20scripts/mcs-deploy-config/mcs-oraclefree-wrapper.py">오라클 서버를 위한 배포스크립트 래퍼</a><br>
+              <a style="color: #effab6;" href="https://github.com/jcxmt125/side-projects/blob/main/python%20scripts/mcs-deploy-config/mcs-ubuntu-wrapper.py">우분투 서버를 위한 배포스크립트 래퍼</a><br>
+              <a style="color: #effab6;" href="https://github.com/jcxmt125/side-projects/blob/main/python%20scripts/mcs-deploy-config/mcs-update-mods.py">모드 업데이트 스크립트</a><br>
+            </p>
+
+            <h3>데스크탑 측</h3>
+
+            <p>
+              <a style="color: #effab6;" href="https://github.com/jcxmt125/side-projects/blob/main/python%20scripts/mcs-deploy-config/mcs-make-config.py">전체 설정 생성 스크립트</a><br>
+              <a style="color: #effab6;" href="https://github.com/jcxmt125/side-projects/blob/main/python%20scripts/mcs-deploy-config/mcs-make-updateconfig.py">업데이트 설정 생성 스크립트</a><br>
+            </p>
+
+            <h3>기타</h3>
+
+            <p>
+              <a style="color: #effab6;" href="https://github.com/jcxmt125/side-projects/blob/main/python%20scripts/mcs-deploy-config/example-config.json">예시 설정 파일</a><br>
+            </p>
+
+            <h2>설정 파일 준비하기</h2>
+
+            <p>
+              이 프로젝트는 서버에 마인크래프트 서버 설치를 돕습니다.<br>
+              우선 설정 파일이 필요합니다.<br>
+              전체 설정 생성 스크립트 (mcs-make-config)를 컴퓨터에서 실행해주세요.<br>
+              설명에 따라 .json 파일을 만들 수 있습니다.<br>
+            </p>
+
+            <h2>서버 배포</h2>
+
+            <p>
+              필요한 파일을 서버로 다운로드 할 수 있습니다.<br>
+              마인크래프트 서버를 설치할 디렉토리로 cd합니다.<br>
+              다음 명령을 실행해 서버 셋업 도우미 스크립트를 다운로드하세요:<br>
+              curl -OJ https://raw.githubusercontent.com/jcxmt125/side-projects/main/python%20scripts/mcs-deploy-config/mcs-deploy-config.py<br>
+              다음, scp와 같은 방식으로 같은 디렉토리에 설정 파일을 업로드하세요.<br>
+              자바/JRE 또한 필요합니다.<br>
+            </p>
+
+            <p>
+              파이썬 스크립트를 서버에서 실행하세요. 추가 모듈은 필요하지 않습니다.<br>
+              설명을 따라 서버에 마인크래프트 서버를 설치합니다.<br>
+              화면에 출력된 커맨드를 기억하거나, source start.sh로 서버를 시작할 수 있습니다.<br>
+              이제 설치 파이썬 스크립트는 삭제해도 됩니다.<br>
+            </p>
+
+            <h2>오라클 서버에 배포하기</h2>
+
+            <p>
+              오라클에 서버를 처음 배포하는 경우, <a style="color: #b6defa;" href="mc-createserver.html">여기</a>를 참고해주세요.<br>
+              위 가이드를 비슷하게 따르되, SSH 연결 후 위의 스크립트를 다운로드 해주세요.<br>
+            </p>
+
+            <h3>마인크래프트 서버 준비 및 배포</h3>
+
+            <p>
+              메인 스크립트를 다운로드 한 뒤, 다음 명령을 실행합니다:<br>
+              curl -OJ https://raw.githubusercontent.com/jcxmt125/side-projects/main/python%20scripts/mcs-deploy-config/mcs-oraclefree-wrapper.py<br>
+              설정 파일 또한 준비해주세요.<br>
+            </p>
+
+            <p>
+              방금 다운로드한 "wrapper" 파이썬 스크립트를 실행합니다.<br>
+              기다리면 나오는 내용 중 가장 최신 버젼의 jdk의 이름을 복사합니다.<br>
+              제 경우, "jdk-22-headless.aarch64"였습니다.<br>
+              붙여넣고, 요청시 "y"와 엔터를 눌러 yum이 Java를 설치하도록 허용합니다.<br>
+              설정 파일의 이름을 타이핑한 뒤, 엔터를 누르세요.<br>
+              잠시 후, 요청받으면 엔터를 눌러 nano를 열고, eula=true로 변경한 뒤, ctrl+x, y, 엔터 순으로 눌러 저장합니다.<br>
+              조금만 더 기다리면 서버를 실행할 준비를 완료합니다.<br>
+            </p>
+
+            <p>
+              데스크탑으로 돌아와주세요.<br>
+              SSH 세션은 유지해주세요. 마인크래프트 서버를 아직 시작하지 않았습니다!<br>
+            </p>
+
+            <h3>네트워크 셋업</h3>
+
+            <p>
+              이제 서버 연결을 설정합니다.<br>
+              실행되고 있는 서버의 설정 화면에서, 서브넷 링크를 클릭합니다.<br>
+              subnet-[date]-[time]과 같은 형식이 기본값입니다.<br>
+              "Default Security list for..." 을 클릭합니다.<br>
+              "Add ingress rules" 버튼을 클릭합니다.<br>
+              Source CIDR 는 0.0.0.0/0, Destination Port range 는 25565로 설정합니다.<br>
+              "Add ingress rules"를 눌러 저장합니다.<br>
+            </p>
+
+            <h2>Ubuntu 서버에 배포하기</h2>
+
+            <p>
+              메인 스크립트를 다운로드 한 뒤, 다음 명령을 실행합니다:<br>
+              curl -OJ https://raw.githubusercontent.com/jcxmt125/side-projects/main/python%20scripts/mcs-deploy-config/mcs-ubuntu-wrapper.py<br>
+              설정 파일 또한 준비해주세요.<br>
+            </p>
+
+            <p>
+              방금 다운로드한 "wrapper" 파이썬 스크립트를 실행합니다.<br>
+              apt update를 실행하고, apt upgrade를 할지 물어봅니다.<br>
+              그 다음, 사용 가능한 jre를 검색합니다.<br>
+              가장 최신 버젼의 headless openjdk, 제 경우 "openjdk-21-jre-headless"를 복사합니다.<br>
+              붙여넣은 뒤, 요청시 "y"를 입력하고 엔터를 눌러 apt가 Java를 설치하도록 허용합니다.<br>
+              설정 파일의 이름을 타이핑한 뒤, 엔터를 누르세요.<br>
+              잠시 후, 요청받으면 엔터를 눌러 nano를 열고, eula=true로 변경한 뒤, ctrl+x, y, 엔터 순으로 눌러 저장합니다.<br>
+              조금만 더 기다리면 서버를 실행할 준비를 완료합니다.<br>
+            </p>
+
+            <h2>완료하고 연결하기</h2>
+
+            <p>
+              선택적으로 더 쉬운 연결을 위해 IP 주소를 도메인에 연결하세요.<br>
+              Public IP address에 대한 A 레코드를 만들어주세요.<br>
+              Cloudflare를 사용중이라면 이 레코드에 대해 프록시 기능 (주황 구름)을 꺼주세요.<br>
+            </p>
+
+            <h3>Start and connect to the server</h3>
+
+            <p>
+              스크립트가 제공한 명령어를 실행합니다.<br>
+              SSH 환경을 접속 해제했을 때 서버가 계속해서 실행되도록 Screen이나 Tmux에서 실행하는 것을 추천합니다.<br>
+              서버가 곧 시작됩니다!<br>
+              마인크래프트 클라이언트에서, 서버를 추가해주세요.<br>
+              멀티플레이를 클릭하고, "서버 추가"를 클릭해주세요.<br>
+              IP 주소나, 설정된 도메인을 입력합니다.<br>
+              이제 연결할 수 있습니다!
+            </p>
+
+            <h2>서버 유지관리</h2>
+
+            <h3>모드 변경 및 업데이트하기</h3>
+
+            <p>
+              On your desktop, download the update config generation script.<br>
+              Run it, and add the mods you want to update the server with.<br>
+              Add all the mods, even ones that didn't get a update, as it'll delete the entire md directory and update it with this list.<br>
+              Save and transfer the config file.<br>
+            </p>
+
+            <p>
+              On your server, open another tmux or screen session.<br>
+              cd into the server directory, then download the upgrade assistant script with the following:<br>
+              curl -OJ https://raw.githubusercontent.com/jcxmt125/side-projects/main/python%20scripts/mcs-deploy-config/mcs-make-config.py<br>
+              After you verify the script and the config file is ready, stop the minecraft server.<br>
+              Execute the scrip, provide the config file (It may also be a 'full' config file), and it should be done fairly quickly.<br>
+              Start the minecraft server.<br>
+            </p>
+
+        </body>
+    </html>
