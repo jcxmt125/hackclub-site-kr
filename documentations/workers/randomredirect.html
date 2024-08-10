@@ -9,18 +9,8 @@
         <title>랜덤 리디렉트 워커에 대한 설명서</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300&display=swap" rel="stylesheet">
-        <style>
-          body {
-            font-family: 'IBM Plex Sans KR', sans-serif;;
-            padding: 10px;
-            line-height: 200%;
-          }
-          img {  
-            max-width: 100%;
-            height: auto;
-          }
-        </style>
+        <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=IBM+Plex+Sans+KR:wght@300&family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/style.css">
         </head>
         <body style="background-color:#202020;color:#F0F0F0">
 
@@ -29,13 +19,13 @@
             <h2>소스 코드</h2>
 
             <p>
-              <a style="color: #effab6;" href="https://github.com/jcxmt125/side-projects/blob/main/workers/randomredirect-worker.js">워커 스크립트</a><br>
+              <a class="extLink" href="https://github.com/jcxmt125/side-projects/blob/main/workers/randomredirect-worker.js">워커 스크립트</a><br>
             </p>
 
             <h2>배포 방법</h2>
 
             <p>
-              우선, <a style="color: #effab6;" href="https://dash.cloudflare.com/">클라우드플레어 계정</a>을 준비해주세요.<br>
+              우선, <a class="extLink" href="https://dash.cloudflare.com/">클라우드플레어 계정</a>을 준비해주세요.<br>
               대시보드의 workers/pages 메뉴로 향하세요.<br>
               <picture>
                 <source srcset="/resources/documentations/cfworkers/cf-dashboard.avif" type="image/avif">
@@ -74,7 +64,7 @@
               코드의 알맞은 부분을 복사 / 붙여넣기 해서 더 많은 path 를 만들 수도 있습니다.<br>
               워커를 배포하고, URL을 방문해 테스트해보세요.<br>
               더 쉬운 사용을 위해 설정, 트리거 (triggers), 로 향해 커스텀 URL이나 경로 (paths)를 설정하세요.<br>
-              Wrangler (CLI) 배포는, <a style="color: #effab6;" href="https://developers.cloudflare.com/workers">클라우드플레어의 도움말을 참고하세요</a>.
+              Wrangler (CLI) 배포는, <a class="extLink" href="https://developers.cloudflare.com/workers">클라우드플레어의 도움말을 참고하세요</a>.
             </p>
 
             <h2>사용 방법</h2>

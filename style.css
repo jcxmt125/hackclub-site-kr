@@ -1,0 +1,53 @@
+body {
+    font-family: 'IBM Plex Sans KR', sans-serif;;
+    padding: 10px;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 200%;
+    background-color:#202020;
+    color:#F0F0F0;
+}
+video {  
+    max-width: 100%;
+    height: auto;
+}
+textarea{
+    font-family: 'IBM Plex Sans KR', sans-serif;;
+    background-color: #303030;
+    color: #F0F0F0;
+    width: 600px;
+    max-width: 100%;
+    height: 120px;
+    font-size: medium;
+}
+img {  
+    max-width: 100%;
+    height: auto;
+}
+h1{
+    font-family: "Gowun Dodum", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.stylized{
+    font-family: "Gowun Dodum", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.srccode{
+    font-family: "Nanum Gothic Coding", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+.intLink{
+    font-family: "Nanum Gothic Coding", monospace;
+    font-weight: 400;
+    font-style: normal;
+    color: #b6defa;
+}
+.extLink{
+    font-family: "Nanum Gothic Coding", monospace;
+    font-weight: 400;
+    font-style: normal;
+    color: #effab6;
+}
